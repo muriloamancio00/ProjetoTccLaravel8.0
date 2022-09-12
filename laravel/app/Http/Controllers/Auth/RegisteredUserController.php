@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Models\Type;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $types = Type::orderBy('nome')->get();
+
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -34,15 +37,20 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        
         ]);
 
         $user = User::create([
+
             'name' => $request->name,
             'email' => $request->email,
+            'type_id' => $request->type_id,
             'password' => Hash::make($request->password),
+
         ]);
 
         event(new Registered($user));
