@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Controllers\PermissionController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Permission;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,11 +30,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
+        // Carregando as Permissões do Usuário / Sessão
+        PermissionController::loadPermissions(Auth::user()->type_id);
         return redirect()->intended(RouteServiceProvider::HOME);
+
     }
 
     /**

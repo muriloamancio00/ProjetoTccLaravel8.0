@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PermissionController;
 use App\Models\User;
+use App\Models\Permission;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -36,6 +38,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             
             'name' => ['required', 'string', 'max:255'],
@@ -53,9 +56,9 @@ class RegisteredUserController extends Controller
 
         ]);
 
-        event(new Registered($user));
+        // Carregando as Permissões do Usuário / Sessão atraves da permission->auth->type_id
 
-        Auth::login($user);
+        PermissionController::loadPermissions((Auth::user()->type_id));
 
         return redirect(RouteServiceProvider::HOME);
     }
