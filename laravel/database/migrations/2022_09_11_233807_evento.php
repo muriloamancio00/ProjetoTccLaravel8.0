@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_TipoEvento');
             $table->foreign('id_TipoEvento')->references('id')->on('tipoEventos');
             $table->unsignedBigInteger('id_Administrador');
-            $table->foreign('id_Administrador')->references('id')->on('administradores');
+            $table->foreign('id_Administrador')->references('id')->on('administradors');
             $table->unsignedBigInteger('id_Feira');
             $table->foreign('id_Feira')->references('id')->on('feiras');
             $table->integer('ativo');

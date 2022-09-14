@@ -63,6 +63,7 @@
                         <option value="{{$item->id}}">
                             {{ $item->nome }}
                         </option>
+                        
                     @endforeach
                 </select>
             </div>

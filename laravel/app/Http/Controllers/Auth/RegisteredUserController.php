@@ -58,6 +58,10 @@ class RegisteredUserController extends Controller
 
         // Carregando as Permissões do Usuário / Sessão atraves da permission->auth->type_id
 
+        event(new Registered($user));
+
+        Auth::login($user);
+
         PermissionController::loadPermissions((Auth::user()->type_id));
 
         return redirect(RouteServiceProvider::HOME);

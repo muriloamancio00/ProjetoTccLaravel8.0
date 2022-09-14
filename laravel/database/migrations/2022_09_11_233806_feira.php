@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('horario');
             $table->string('diaSemana')->nullable();
             $table->unsignedBigInteger('id_Administrador');
-            $table->foreign('id_Administrador')->references('id')->on('administradores');
+            $table->foreign('id_Administrador')->references('id')->on('administradors');
             $table->timestamps();
         });
     }

@@ -12,11 +12,19 @@ class AdministradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $administrador = Administrador::all();
+    public function index() {
 
-        return view('administradores.index', compact(['administrador']));
+        if(!PermissionController::isAuthorized('administradores.index')) {
+
+            abort(403);
+
+        }
+
+        $administradores = Administrador::all();
+
+        $permissions = session('user_permissions');
+
+        return view('administradores.index', compact('permissions','administradores'));
     }
 
     /**
@@ -24,9 +32,16 @@ class AdministradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
+
+        if(!PermissionController::isAuthorized('administradores.create')) {
+        
+            abort(403);
+        
+        }
+
         return view('administradores.create');
+    
     }
 
     /**
@@ -35,8 +50,8 @@ class AdministradorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+
         Administrador::create([
             "nome" => mb_strtoupper($request->nome),
             "senha" => ($request->senha),
@@ -52,9 +67,10 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrador $administrador)
-    {
+    public function show(Administrador $administrador) {
+    
         return view('administradores.show', compact(['administrador']));
+    
     }
 
     /**
@@ -63,9 +79,10 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function edit(Administrador $administrador)
-    {
+    public function edit(Administrador $administrador){
+
         return view('administradores.edit', compact(['administrador']));
+    
     }
 
     /**
@@ -75,12 +92,20 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrador $administrador)
-    {
+    public function update(Request $request, Administrador $administrador) {
+
+        if(!PermissionController::isAuthorized('administradores.create')) {
+        
+            abort(403);
+        
+        }
+
         $administrador->update([
+
             "nome" => mb_strtoupper($request->nome),
             "senha" => ($request->senha),
             "email" => ($request->email)
+
         ]);
 
         return redirect()->route('administradores.index');
@@ -92,8 +117,14 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Administrador $administrador)
-    {
+    public function destroy(Administrador $administrador) {
+
+        if(!PermissionController::isAuthorized('administradores.destroy')) {
+        
+            abort(403);
+        
+        }
+
         $administrador->delete();
 
         return redirect()->route('administradores.index');

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <!-- Define uma seção "titulo" -->
-        <title>VetClin - @yield('titulo')</title>
+        <title>SisColetivos - @yield('titulo')</title>
         
         <!-- Bootstrap 5 / CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -15,12 +15,12 @@
     <body>
         <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary">
             <div class="container-fluid">
-                <a href="{{route('index')}}" class="navbar-brand ms-sm-3">
+                <a href="{{route('administradores.index')}}" class="navbar-brand ms-sm-3">
                       <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-clipboard2-pulse-fill" viewBox="0 0 16 16">
                         <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
                         <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5ZM9.98 5.356 11.372 10h.128a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.479-.356l-.94-3.135-1.092 5.096a.5.5 0 0 1-.968.039L6.383 8.85l-.936 1.873A.5.5 0 0 1 5 11h-.5a.5.5 0 0 1 0-1h.191l1.362-2.724a.5.5 0 0 1 .926.08l.94 3.135 1.092-5.096a.5.5 0 0 1 .968-.039Z"/>
                       </svg>
-                        <span class="ms-3 fs-5">VetClin</span>
+                        <span class="ms-3 fs-5">SisColetivos</span>
                 </a>
                 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#itens">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-menu-button-wide" viewBox="0 0 16 16">
@@ -39,9 +39,11 @@
                                 <span class="ps-1 text-white">Organização</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('clientes.index')}}" class="dropdown-item">Clientes</a></li>
-                                <li><a href="{{route('veterinarios.index')}}" class="dropdown-item">Veterinários</a></li>
-                                <li><a href="{{route('especialidades.index')}}" class="dropdown-item">Especialidades</a></li>
+                                <li><a href="{{route('administradores.index')}}" class="dropdown-item">Alunos</a></li>
+                                <li><a href="" class="dropdown-item">Cursos</a></li>
+                                <li><a href="" class="dropdown-item">Disciplinas</a></li>
+                                <li><a href="" class="dropdown-item">Eixos</a></li>
+                                <li><a href="" class="dropdown-item">Professores</a></li>
                             </ul>
                         </li>
                         <li class="nav-item ps-2 me-3">
@@ -61,7 +63,7 @@
                 <div class="col">
                     <h3 class="display-7 text-secondary d-none d-md-block"><b>{{ $titulo }}</b></h3>
                 </div>
-                @if(isset($rota))
+                @if(isset($rota) && UserPermissions::isAutorized('administradores.create'))
                     <div class="col d-flex justify-content-end">
                         <a href= "{{ route($rota) }}" class="btn btn-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
