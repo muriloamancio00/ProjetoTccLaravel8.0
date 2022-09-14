@@ -63,7 +63,7 @@
                 <div class="col">
                     <h3 class="display-7 text-secondary d-none d-md-block"><b>{{ $titulo }}</b></h3>
                 </div>
-                @if(isset($rota) && UserPermissions::isAutorized('administradores.create'))
+                @if(isset($rota) && UserPermissions::isAuthorized('administradores.create'))
                     <div class="col d-flex justify-content-end">
                         <a href= "{{ route($rota) }}" class="btn btn-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">

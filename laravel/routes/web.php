@@ -24,6 +24,10 @@ Route::get('/testfacade', function () {
 
 Route::get('/dashboard', function () {
     return view('templates.middleware')->with('titulo', "");
+})->middleware(['auth'])->name('template');
+
+Route::get('/home', function () {
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('/administradores', '\App\Http\Controllers\AdministradorController')

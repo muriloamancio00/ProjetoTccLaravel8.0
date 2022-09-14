@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Facades\UserPermissions;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PermissionController;
 use App\Models\User;
@@ -62,7 +63,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        PermissionController::loadPermissions((Auth::user()->type_id));
+        UserPermissions::loadPermissions((Auth::user()->type_id));
 
         return redirect(RouteServiceProvider::HOME);
     }

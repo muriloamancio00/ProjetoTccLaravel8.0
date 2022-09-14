@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Facades\UserPermissions;
 use App\Models\Administrador;
 use Illuminate\Http\Request;
 
@@ -34,7 +34,7 @@ class AdministradorController extends Controller
      */
     public function create() {
 
-        if(!PermissionController::isAuthorized('administradores.create')) {
+        if(!UserPermissions::isAuthorized('administradores.create')) {
         
             abort(403);
         
@@ -94,7 +94,7 @@ class AdministradorController extends Controller
      */
     public function update(Request $request, Administrador $administrador) {
 
-        if(!PermissionController::isAuthorized('administradores.create')) {
+        if(!UserPermissions::isAuthorized('administradores.create')) {
         
             abort(403);
         
@@ -119,7 +119,7 @@ class AdministradorController extends Controller
      */
     public function destroy(Administrador $administrador) {
 
-        if(!PermissionController::isAuthorized('administradores.destroy')) {
+        if(!UserPermissions::isAuthorized('administradores.destroy')) {
         
             abort(403);
         
