@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Facades\UserPermissions;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/testfacade', function () {
-    return App\Facades\UserPermissionsFacade::test();
-    });
+    return UserPermissions::test();
+});
+    
     
 
 Route::get('/dashboard', function () {
@@ -31,6 +33,9 @@ Route::get('/home', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('/administradores', '\App\Http\Controllers\AdministradorController')
+->middleware(['auth']);
+
+Route::resource('/feirantes', '\App\Http\Controllers\FeiranteController')
 ->middleware(['auth']);
 
 

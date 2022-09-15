@@ -6,18 +6,18 @@ use Illuminate\Support\ServiceProvider;
 use App\Facades\UserPermissions;
 
 
-class CustomFacadeServiceProvider extends ServiceProvider
-{
+class CustomFacadeServiceProvider extends ServiceProvider {
     /**
      * Register services.
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
+
         $this->app->bind('userpermissions',function(){
+
             return new UserPermissions();
-            });
+        });
     }
 
     /**

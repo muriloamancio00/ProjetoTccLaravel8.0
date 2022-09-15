@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use App\Models\Type;
+use App\Models\Role;
 
 class RegisteredUserController extends Controller
 {
@@ -24,9 +24,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        $types = Type::orderBy('nome')->get();
+        $roles = Role::orderBy('name')->get();
 
-        return view('auth.register', compact('types'));
+        return view('auth.register', compact('roles'));
     }
 
     /**
@@ -52,8 +52,8 @@ class RegisteredUserController extends Controller
 
             'name' => $request->name,
             'email' => $request->email,
-            'type_id' => $request->type_id,
             'password' => Hash::make($request->password),
+            'role_id' => $request->role_id,
 
         ]);
 
@@ -63,7 +63,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        UserPermissions::loadPermissions((Auth::user()->type_id));
+        UserPermissions::loadPermissions((Auth::user()->role_id));
 
         return redirect(RouteServiceProvider::HOME);
     }

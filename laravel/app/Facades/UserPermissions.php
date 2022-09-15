@@ -22,6 +22,7 @@ class UserPermissions {
     public static function isAuthorized($rule) {
 
         $permissions = session('user_permissions');
+        
         return $permissions[$rule];
 
     }

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Feirante extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'type_id',
+    ];
+
 }

@@ -13,6 +13,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+    /**
+     * Run the database seeds.
+     * php artisan make:seeder TipoProdutoSeeder/
+     * php artisan make:seeder TipoEventoSeeder
+     * php artisan make:seeder ListaProdutoSeeder
+     * php artisan make:seeder FeiraSeeder
+     * php artisan make:seeder BancaSeeder
+     * php artisan make:seeder ProdutoSeeder
+     *
+     * 
+     */
+
+        //$this->call(RolesSeeder::class);
+        //$this->call(UsersSeeder::class);
+        //$this->call(ResourcesSeeder::class);
+        $this->call(PermissionsSeeder::class);
+        //
+        //$this->call(TipoProdutoSeeder::class);
+        //$this->call(TipoEventoSeeder::class);
+        $this->call(ListaProdutoSeeder::class);
+        $this->call(FeiraSeeder::class);
+        $this->call(BancaSeeder::class);
+        $this->call(ProdutoSeeder::class);
+        //
+        
     }
 }

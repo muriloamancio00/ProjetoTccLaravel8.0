@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Facades\UserPermissions;
 use App\Models\Administrador;
 use Illuminate\Http\Request;
@@ -41,7 +42,6 @@ class AdministradorController extends Controller
         }
 
         return view('administradores.create');
-    
     }
 
     /**
@@ -56,6 +56,7 @@ class AdministradorController extends Controller
             "nome" => mb_strtoupper($request->nome),
             "senha" => ($request->senha),
             "email" => ($request->email),
+            //"type_id" => ($request->type_id),
         ]);
 
         return redirect()->route('administradores.index');
@@ -105,7 +106,7 @@ class AdministradorController extends Controller
             "nome" => mb_strtoupper($request->nome),
             "senha" => ($request->senha),
             "email" => ($request->email)
-
+            //"type_id" => ($request->type_id),
         ]);
 
         return redirect()->route('administradores.index');

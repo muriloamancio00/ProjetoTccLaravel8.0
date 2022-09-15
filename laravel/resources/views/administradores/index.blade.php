@@ -8,11 +8,13 @@
 
 ])
 
-<td>Todos Administradores</td>
 
-<td class="d-none d-md-table-cell">ENSINO MÉDIO INTEGRADO</td>
 
 <td>
+    <td>Todos Administradores</td>
+
+    <td class="d-none d-md-table-cell">ENSINO MÉDIO INTEGRADO</td>
+
     @if(UserPermissions::isAuthorized('administradores.create'))
         <a href= "{{ route('administradores.create', '1') }}" class="btn btn-success">
        
@@ -26,6 +28,7 @@
     @endif
 
 </td>
+
         
 @if(isset($rota) && $permission)
     <div class="col d-flex justify-content-end">
@@ -34,3 +37,5 @@
         </a>
     </div>
 @endif
+
+

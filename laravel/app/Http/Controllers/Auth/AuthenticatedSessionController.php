@@ -32,6 +32,7 @@ class AuthenticatedSessionController extends Controller
     {
 
         $request->authenticate();
+        
         $request->session()->regenerate();
 
         // Carregando as Permissões do Usuário / Sessão
