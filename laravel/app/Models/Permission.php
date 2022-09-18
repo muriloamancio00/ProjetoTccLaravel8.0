@@ -9,4 +9,16 @@ class Permission extends Model
 {
     use HasFactory;  
 
+    public function resource() {
+        
+        return $this->belongsTo('\App\Models\Resource');
+        
+    }
+
+    public function role() {
+
+        return $this->belongsTo('\App\Models\Role');
+    }
+
+
 }

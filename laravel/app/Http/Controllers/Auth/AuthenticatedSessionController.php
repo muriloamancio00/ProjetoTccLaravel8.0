@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Controllers\PermissionController;
+use App\Models\Administrador;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Permission;
+use App\Models\AdministradorPolicy;
+use App\Facades\UserPermissions;
+use App\Http\Controllers\Controller;
 
-class AuthenticatedSessionController extends Controller
-{
+class AuthenticatedSessionController extends Controller {
+
+    protected $policies = [
+    
+        Administrador::class => AdministradorPolicy::class,
+    ];
+
     /**
      * Display the login view.
      *
@@ -28,16 +35,15 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
-    {
-
-        $request->authenticate();
+    public function store(LoginRequest $request){
         
+        $request->authenticate();
+
         $request->session()->regenerate();
 
         // Carregando as Permissões do Usuário / Sessão
-        PermissionController::loadPermissions(Auth::user()->type_id);
-        
+        UserPermissions::loadPermissions(Auth::user()->role_id);
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

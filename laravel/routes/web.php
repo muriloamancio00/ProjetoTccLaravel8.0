@@ -19,9 +19,11 @@ Route::get('/', function () {
 });
 
 Route::get('/testfacade', function () {
-    return UserPermissions::test();
+    return App\Facades\UserPermissionsFacade::test();
 });
-    
+Route::get('/testfacade1', function () {
+    return UserPermissions::test();
+    });
     
 
 Route::get('/dashboard', function () {

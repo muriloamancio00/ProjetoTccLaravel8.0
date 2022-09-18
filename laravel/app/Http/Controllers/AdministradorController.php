@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Facades\UserPermissions;
 use App\Models\Administrador;
 use Illuminate\Http\Request;
+
 
 class AdministradorController extends Controller
 {
@@ -15,17 +14,25 @@ class AdministradorController extends Controller
      */
     public function index() {
 
-        if(!PermissionController::isAuthorized('administradores.index')) {
-
-            abort(403);
-
-        }
+        $this->authorize('viewAny', Administrador::class);
 
         $administradores = Administrador::all();
 
-        $permissions = session('user_permissions');
+        return view('administradores.index', compact('administradores'));
+    }
 
-        return view('administradores.index', compact('permissions','administradores'));
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Administrador  $administrador
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Administrador $administrador) {
+
+        $this->authorize('view', $administrador);
+    
+        return view('administradores.show');
+    
     }
 
     /**
@@ -33,13 +40,10 @@ class AdministradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function create() {
 
-        if(!UserPermissions::isAuthorized('administradores.create')) {
-        
-            abort(403);
-        
-        }
+        $this->authorize('create', Administrador::class);
 
         return view('administradores.create');
     }
@@ -52,14 +56,7 @@ class AdministradorController extends Controller
      */
     public function store(Request $request){
 
-        Administrador::create([
-            "nome" => mb_strtoupper($request->nome),
-            "senha" => ($request->senha),
-            "email" => ($request->email),
-            //"type_id" => ($request->type_id),
-        ]);
-
-        return redirect()->route('administradores.index');
+        $this->authorize('create', Administrador::class);
     }
 
     /**
@@ -68,21 +65,13 @@ class AdministradorController extends Controller
      * @param  \App\Models\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrador $administrador) {
-    
-        return view('administradores.show', compact(['administrador']));
-    
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Administrador  $administrador
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Administrador $administrador){
 
-        return view('administradores.edit', compact(['administrador']));
+        $this->authorize('update', $administrador);
+
+        return view('administradores.edit');
     
     }
 
@@ -95,21 +84,7 @@ class AdministradorController extends Controller
      */
     public function update(Request $request, Administrador $administrador) {
 
-        if(!UserPermissions::isAuthorized('administradores.create')) {
-        
-            abort(403);
-        
-        }
-
-        $administrador->update([
-
-            "nome" => mb_strtoupper($request->nome),
-            "senha" => ($request->senha),
-            "email" => ($request->email)
-            //"type_id" => ($request->type_id),
-        ]);
-
-        return redirect()->route('administradores.index');
+        $this->authorize('update', $administrador);
     }
 
     /**
@@ -120,14 +95,9 @@ class AdministradorController extends Controller
      */
     public function destroy(Administrador $administrador) {
 
-        if(!UserPermissions::isAuthorized('administradores.destroy')) {
-        
-            abort(403);
-        
-        }
+        $this->authorize('delete', $administrador);
 
-        $administrador->delete();
+        return view('administradores.destroy');
 
-        return redirect()->route('administradores.index');
     }
 }

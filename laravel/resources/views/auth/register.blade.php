@@ -58,7 +58,7 @@
 
             <!-- Paper -->
             <div class="mt-4">
-                <select name="roles" class="rounded-md shadow-sm border-gray-300
+                <select name="role_id" class="rounded-md shadow-sm border-gray-300
                     focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     @foreach($roles as $item)
                         <option value="{{$item->id}}">

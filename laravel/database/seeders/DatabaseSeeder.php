@@ -26,13 +26,12 @@ class DatabaseSeeder extends Seeder
      * 
      */
 
-        //$this->call(RolesSeeder::class);
-        //$this->call(UsersSeeder::class);
-        //$this->call(ResourcesSeeder::class);
+        $this->call(RolesSeeder::class);
+        $this->call(UsersSeeder::class);
+        $this->call(ResourcesSeeder::class);
         $this->call(PermissionsSeeder::class);
-        //
-        //$this->call(TipoProdutoSeeder::class);
-        //$this->call(TipoEventoSeeder::class);
+        $this->call(TipoProdutoSeeder::class);
+        $this->call(TipoEventoSeeder::class);
         $this->call(ListaProdutoSeeder::class);
         $this->call(FeiraSeeder::class);
         $this->call(BancaSeeder::class);
