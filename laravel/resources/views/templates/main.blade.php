@@ -40,7 +40,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('administradores.index')}}" class="dropdown-item">Administrador</a></li>
-                                <li><a href="" class="dropdown-item">Feiras</a></li>
+                                <li><a href="{{route('feiras.index')}}" class="dropdown-item">Feiras</a></li>
                             </ul>
                         </li>
                         <li class="nav-item ps-2 me-3">

@@ -46,7 +46,7 @@ Route::get('/administradores', function () {
 Route::resource('administradores', '\App\Http\Controllers\AdministradorController')
 ->middleware(['auth']);
 
-Route::resource('/feirantes', '\App\Http\Controllers\FeiranteController')
+Route::resource('feiras', '\App\Http\Controllers\FeiraController')
 ->middleware(['auth']);
 
 

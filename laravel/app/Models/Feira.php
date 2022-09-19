@@ -9,5 +9,12 @@ class Feira extends Model {
 
     use HasFactory;
 
-    
+    protected $fillable = [
+        'name',
+        'endereco',
+        'horario',
+        'diaSemana',
+        'id_Administrador ',
+    ];
+
 }

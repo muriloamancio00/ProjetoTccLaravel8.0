@@ -1,7 +1,7 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.main', ['titulo' => "Eixos", 'rota' => "administradores.create"])
+@extends('templates.main', ['titulo' => "Feira", 'rota' => "feiras.create"])
 <!-- Preenche o conteúdo da seção "titulo" -->
-@section('titulo') Eixos @endsection
+@section('titulo') Feira @endsection
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
 
@@ -10,11 +10,11 @@
             
             <!-- Utiliza o componente "datalist" criado -->
             <x-datalist 
-                :title="'Eixos'"
-                :crud="'administradores'"
+                :title="'Feira'"
+                :crud="'feiras'"
                 :header="['ID','NOME','']" 
                 :fields="['id','nome',]"
-                :data="$administradores"
+                :data="$feiras"
                 :hide="[true,true,true]" 
                 :info="['id', 'nome']"
                 :remove="'nome'"

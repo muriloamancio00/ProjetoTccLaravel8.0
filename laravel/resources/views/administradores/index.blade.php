@@ -11,7 +11,7 @@
             <!-- Utiliza o componente "datalist" criado -->
             <x-datalist 
                 :title="'administradores'"
-                :crud="'administradores'"
+                :crud="'Administrador'"
                 :header="['ID','NOME','']" 
                 :fields="['id','nome',]"
                 :data="$administradores"
