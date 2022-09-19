@@ -20,12 +20,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/testfacade', function () {
-    return App\Facades\UserPermissionsFacade::test();
-});
-Route::get('/testfacade1', function () {
-    return UserPermissions::test();
+/*
+    Route::get('/testfacade', function () {
+        return App\Facades\UserPermissionsFacade::test();
     });
+    Route::get('/testfacade1', function () {
+        return UserPermissions::test();
+    });
+*/
     
 
 Route::get('/dashboard', function () {

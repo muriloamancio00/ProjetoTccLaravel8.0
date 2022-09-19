@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\Administrador;
 use App\Providers\RouteServiceProvider;
@@ -11,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\AdministradorPolicy;
 use App\Facades\UserPermissions;
 use App\Http\Controllers\Controller;
+use App\Events\HomeEvent;
+
 
 class AuthenticatedSessionController extends Controller {
 
@@ -42,9 +43,15 @@ class AuthenticatedSessionController extends Controller {
         $request->session()->regenerate();
 
         // Carregando as Permissões do Usuário / Sessão
+
         UserPermissions::loadPermissions(Auth::user()->role_id);
 
+        // Registra o Evento HomeEvent
+
+        event(new HomeEvent("Parâmetro Evento"));
+
         return redirect()->intended(RouteServiceProvider::HOME);
+        
     }
 
     /**
