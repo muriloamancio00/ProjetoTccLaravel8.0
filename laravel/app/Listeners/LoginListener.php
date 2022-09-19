@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Listeners;
-use App\Events\HomeEvent;
+use Illuminate\Support\Facades\Mail;
+use \App\Mail\NewLogin;
 
 
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -27,10 +28,8 @@ class LoginListener
      */
     public function handle($event)
     {
-        info("[LoginListener]: Usuário ok!");
-
-        info("[LoginListener]: ".$event->user->email);
-        info("[LoginListener]: ".$event->user->name);
-
+        Mail::to($event->user)->send(
+            new NewLogin($event->user)
+        );
     }
 }
