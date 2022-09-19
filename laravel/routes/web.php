@@ -15,8 +15,10 @@ use App\Facades\UserPermissions;
 */
 
 Route::get('/', function () {
-    return "<h1>Home</h1>";
+    return view('welcome');
+
 });
+
 
 Route::get('/testfacade', function () {
     return App\Facades\UserPermissionsFacade::test();
