@@ -2,11 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Events\HomeEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class HomeEventListener
+class ResetPassword
 {
     /**
      * Create the event listener.
@@ -21,10 +20,11 @@ class HomeEventListener
     /**
      * Handle the event.
      *
-     * @param  \App\Events\HomeEvent  $event
+     * @param  object  $event
      * @return void
      */
-    public function handle(HomeEvent $event) {
-
+    public function handle($event)
+    {
+        info("[ResetEvent]:Senha Atualizada");
     }
 }
