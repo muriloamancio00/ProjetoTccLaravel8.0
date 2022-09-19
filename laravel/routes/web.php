@@ -31,14 +31,19 @@ Route::get('/', function () {
     
 
 Route::get('/dashboard', function () {
-    return view('templates.middleware')->with('titulo', "");
-})->middleware(['auth'])->name('template');
+    return view('templates.main')->with('titulo', "");
+})->middleware(['auth'])->name('index');
 
 Route::get('/home', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('/administradores', '\App\Http\Controllers\AdministradorController')
+/*
+Route::get('/administradores', function () {
+    return view('administradores.index');
+})->middleware(['auth']);*/
+
+Route::resource('administradores', '\App\Http\Controllers\AdministradorController')
 ->middleware(['auth']);
 
 Route::resource('/feirantes', '\App\Http\Controllers\FeiranteController')
@@ -46,3 +51,5 @@ Route::resource('/feirantes', '\App\Http\Controllers\FeiranteController')
 
 
 require __DIR__.'/auth.php';
+
+

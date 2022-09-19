@@ -12,9 +12,13 @@ class FeiraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+
+        $this->authorize('viewAny', Feira::class);
+
+        $feiras = Feira::all();
+
+        return view('feiras.index', compact('feiras'));
     }
 
     /**
@@ -22,9 +26,11 @@ class FeiraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+
+        $this->authorize('create', Feira::class);
+
+        return view('feiras.create');
     }
 
     /**
@@ -33,9 +39,9 @@ class FeiraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+         
+        $this->authorize('create', Feira::class);
     }
 
     /**
@@ -44,9 +50,11 @@ class FeiraController extends Controller
      * @param  \App\Models\Feira  $feira
      * @return \Illuminate\Http\Response
      */
-    public function show(Feira $feira)
-    {
-        //
+    public function show(Feira $feiras) {
+        
+        $this->authorize('view', $feiras);
+    
+        return view('feiras.show');
     }
 
     /**
@@ -55,9 +63,11 @@ class FeiraController extends Controller
      * @param  \App\Models\Feira  $feira
      * @return \Illuminate\Http\Response
      */
-    public function edit(Feira $feira)
-    {
-        //
+    public function edit(Feira $feira) {
+
+        $this->authorize('update', $feira);
+
+        return view('feiras.edit');
     }
 
     /**
@@ -67,9 +77,9 @@ class FeiraController extends Controller
      * @param  \App\Models\Feira  $feira
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feira $feira)
-    {
-        //
+    public function update(Request $request, Feira $feira) {
+
+        $this->authorize('update', $feira);
     }
 
     /**
@@ -78,8 +88,10 @@ class FeiraController extends Controller
      * @param  \App\Models\Feira  $feira
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feira $feira)
-    {
-        //
+    public function destroy(Feira $feira) {
+
+        $this->authorize('delete', $feira);
+
+        return view('feiras.destroy');
     }
 }
