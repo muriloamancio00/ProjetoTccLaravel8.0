@@ -17,7 +17,7 @@ class FeiraController extends Controller
         $this->authorize('viewAny', Feira::class);
 
         
-        $feiras = Feira::with(['banca'])->get();
+        $feiras = Feira::with(['feira__bancas'])->get();
 
         return view('feiras.index', compact('feiras'));
     }

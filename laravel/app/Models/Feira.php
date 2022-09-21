@@ -17,8 +17,8 @@ class Feira extends Model {
     ];
         
 
-    public function banca() {
-        return $this->belongsToMany('\App\Models\Banca', 'feiras_bancas');
+    public function feira__bancas() {
+        return $this->hasMany('\App\Models\Feira_Banca');
     }
         
 
