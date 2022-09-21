@@ -46,6 +46,9 @@ Route::resource('produtos', '\App\Http\Controllers\ProdutoController')
 ->middleware(['auth']);
 
 
+Route::resource('bancas', '\App\Http\Controllers\BancaController')
+->middleware(['auth']);
+
 require __DIR__.'/auth.php';
 
 

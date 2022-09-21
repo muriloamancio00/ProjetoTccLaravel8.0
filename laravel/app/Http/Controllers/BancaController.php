@@ -14,7 +14,11 @@ class BancaController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny', Banca::class);
+
+        $bancas = Banca::all();
+
+        return view('bancas.index', compact('bancas'));
     }
 
     /**
@@ -24,7 +28,9 @@ class BancaController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Banca::class);
+
+        return view('bancas.create');
     }
 
     /**

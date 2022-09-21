@@ -40,6 +40,7 @@
                             </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{route('feiras.index')}}" class="dropdown-item">Feiras</a></li>
+                                    <li><a href="{{route('bancas.index')}}" class="dropdown-item">Bancas</a></li>
                                     <li><a href="{{route('produtos.index')}}" class="dropdown-item">Produtos</a></li>
                                 </ul>             
                         </li>    
