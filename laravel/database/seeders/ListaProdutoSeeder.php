@@ -16,7 +16,7 @@ class ListaProdutoSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 10; $i++) {
-            DB::table('listaProdutos')->insert([
+            DB::table('lista_produtos')->insert([
                 'nome' => Str::random(15),
                 'descricao' => Str::random(15),
                 'ativo' => 1,

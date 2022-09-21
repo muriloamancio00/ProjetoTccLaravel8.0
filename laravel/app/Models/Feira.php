@@ -15,9 +15,11 @@ class Feira extends Model {
         'diaSemana',
         'id_Administrador',
     ];
+        
 
-    public function feira() {
-        return $this->belongsTo('App\Models\Administrador');
-        }
+    public function banca() {
+        return $this->belongsToMany('\App\Models\Banca', 'feiras_bancas');
+    }
+        
 
 }

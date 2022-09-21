@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('bancas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->unsignedBigInteger('id_Feira');
-            $table->unsignedBigInteger('id_ListaProduto')->nullable();
-            $table->foreign('id_Feira')->references('id')->on('feiras');
-            $table->foreign('id_ListaProduto')->references('id')->on('listaProdutos');
+            $table->unsignedBigInteger('id_feira');
+            $table->unsignedBigInteger('id_listaProduto')->nullable();
+            $table->foreign('id_feira')->references('id')->on('feiras');
+            $table->foreign('id_listaProduto')->references('id')->on('lista_produtos');
             $table->integer('ativo');
             $table->timestamps();
         });

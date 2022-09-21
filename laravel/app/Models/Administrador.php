@@ -16,4 +16,8 @@ class Administrador extends Model
         'type_id',
     ];
 
+    public function feira() {
+        return $this->belongsToMany('\App\Models\Feira', 'feiras');
+    }
+        
 }

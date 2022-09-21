@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ListaProdutoSeeder::class);
         $this->call(FeiraSeeder::class);
         $this->call(BancaSeeder::class);
+        $this->call(Feiras_BancasSeeder::class);
         $this->call(ProdutoSeeder::class);
         //
         

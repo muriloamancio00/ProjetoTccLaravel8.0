@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banca;
+use App\Models\Feira;
+use App\Models\ListaProduto;
 use Illuminate\Http\Request;
 
 class BancaController extends Controller
@@ -16,7 +18,11 @@ class BancaController extends Controller
     {
         $this->authorize('viewAny', Banca::class);
 
-        $bancas = Banca::all();
+        $bancas = Banca::with(['feira__bancas'])->get();
+
+        //$bancas = Banca::all();
+
+        //dd($bancas);
 
         return view('bancas.index', compact('bancas'));
     }
@@ -28,9 +34,14 @@ class BancaController extends Controller
      */
     public function create()
     {
+
         $this->authorize('create', Banca::class);
 
-        return view('bancas.create');
+        $feiras = Feira::orderBy('id')->get();
+
+        $listas = ListaProduto::orderBy('id')->get();
+
+        return view('bancas.create', compact(['feiras','listas']));
     }
 
     /**
@@ -39,9 +50,32 @@ class BancaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+
+        $this->authorize('create', Banca::class);
+
+
+        $regras = [
+            'nome' => 'required|max:50|min:5',
+        ];
+
+        $msgs = [
+            "required" => "O preenchimento do campo [:attribute] é obrigatório!",
+            "max" => "O campo [:attribute] possui tamanho máximo de [:max] caracteres!",
+            "min" => "O campo [:attribute] possui tamanho mínimo de [:min] caracteres!",
+            "unique" => "Já existe um endereço cadastrado com esse [:attribute]!"
+        ];
+
+        $request->validate($regras, $msgs);
+
+        Banca::create([
+            'nome' => $request->nome,
+            'id_feira' => $request->id_feira,
+            'id_listaProduto' => $request->id_listaProduto,
+            'ativo' => 1,
+        ]);
+
+        return redirect()->route('bancas.index');
     }
 
     /**
