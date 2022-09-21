@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Models\Feira;
+use App\Models\Produto;
 use App\Models\User;
 use App\Facades\UserPermissions;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class FeiraPolicy {
+class ProdutoPolicy {
 
     use HandlesAuthorization;
 
@@ -22,19 +22,19 @@ class FeiraPolicy {
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Auth\Access\Response|bool
      */
 
     public function viewAny(User $user) {
 
-        return UserPermissions::isAuthorized('feiras.index');
+        return UserPermissions::isAuthorized('produtos.index');
     }
         
 
-    public function view(User $user, Feira $feira)
+    public function view(User $user, Produto $produto)
     {
-        return UserPermissions::isAuthorized('feiras.show');
+        return UserPermissions::isAuthorized('produtos.show');
 
     }
 
@@ -46,19 +46,19 @@ class FeiraPolicy {
      */
     public function create(User $user)
     {
-        return UserPermissions::isAuthorized('feiras.create');
+        return UserPermissions::isAuthorized('produtos.create');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Feira $feira)
+    public function update(User $user, Produto $produto)
     {
-        return UserPermissions::isAuthorized('feiras.edit');
+        return UserPermissions::isAuthorized('produtos.edit');
 
     }
 
@@ -66,10 +66,10 @@ class FeiraPolicy {
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Feira $feira)
+    public function delete(User $user, Produto $produto)
     {
         //
     }
@@ -78,10 +78,10 @@ class FeiraPolicy {
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Feira $feira)
+    public function restore(User $user, Produto $produto)
     {
         //
     }
@@ -90,10 +90,10 @@ class FeiraPolicy {
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Feira $feira)
+    public function forceDelete(User $user, Produto $produto)
     {
         //
     }

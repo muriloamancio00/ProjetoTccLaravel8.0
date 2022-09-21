@@ -10,9 +10,9 @@
             
             <!-- Utiliza o componente "datalist" criado -->
             <x-datalist 
-                :title="'Feira'"
+                :title="'feira'"
                 :crud="'feiras'"
-                :header="['ID','NOME','']" 
+                :header="['ID','Endereço','']" 
                 :fields="['id','endereco',]"
                 :data="$feiras"
                 :hide="[true,true,true]" 

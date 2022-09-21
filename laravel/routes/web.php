@@ -38,15 +38,11 @@ Route::get('/home', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-/*
-Route::get('/administradores', function () {
-    return view('administradores.index');
-})->middleware(['auth']);*/
-
-Route::resource('administradores', '\App\Http\Controllers\AdministradorController')
-->middleware(['auth']);
 
 Route::resource('feiras', '\App\Http\Controllers\FeiraController')
+->middleware(['auth']);
+
+Route::resource('produtos', '\App\Http\Controllers\ProdutoController')
 ->middleware(['auth']);
 
 

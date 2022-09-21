@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feira;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class FeiraController extends Controller
@@ -14,8 +13,6 @@ class FeiraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-
-       
 
         $this->authorize('viewAny', Feira::class);
 
@@ -32,8 +29,6 @@ class FeiraController extends Controller
     public function create() {
 
         $this->authorize('create', Feira::class);
-
-
 
         return view('feiras.create');
     }
@@ -64,10 +59,6 @@ class FeiraController extends Controller
 
         $request->validate($regras, $msgs);
 
-        
-
-
-
         Feira::create([
             'endereco' => $request->endereco,
             'diaSemana' => $request->diaSemana,
@@ -75,8 +66,6 @@ class FeiraController extends Controller
             'id_Administrador' => 1,
         ]);
 
-
-        
         return redirect()->route('feiras.index');
 
     }
@@ -104,7 +93,7 @@ class FeiraController extends Controller
 
         $this->authorize('update', $feira);
 
-        return view('feiras.edit');
+        return view('feiras.edit',compact('feira'));
     }
 
     /**
