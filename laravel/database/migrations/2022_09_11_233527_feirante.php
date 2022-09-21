@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('feirantes', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('senha');
+            $table->string('name');
+            $table->string('password');
             $table->string('email');
-            $table->integer('ativo');
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->integer('status');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

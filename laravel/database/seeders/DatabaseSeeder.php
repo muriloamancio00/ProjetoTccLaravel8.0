@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolesSeeder::class);
         $this->call(UsersSeeder::class);
+        $this->call(FeiranteSeeder::class);
+        $this->call(AdministradorSeeder::class);
         $this->call(ResourcesSeeder::class);
         $this->call(PermissionsSeeder::class);
         $this->call(TipoProdutoSeeder::class);

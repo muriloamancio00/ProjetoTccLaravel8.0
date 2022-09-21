@@ -10,11 +10,14 @@ class Feira extends Model {
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'endereco',
         'horario',
         'diaSemana',
-        'id_Administrador ',
+        'id_Administrador',
     ];
+
+    public function feira() {
+        return $this->belongsTo('App\Models\Administrador');
+        }
 
 }

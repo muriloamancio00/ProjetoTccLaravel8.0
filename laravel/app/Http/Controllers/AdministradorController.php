@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Administrador;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 
@@ -15,10 +16,11 @@ class AdministradorController extends Controller
     public function index() {
 
         $this->authorize('viewAny', Administrador::class);
+        $this->authorizeForUser($administrador = new Administrador(),'viewAny',Administrador::class);
 
         $administradores = Administrador::all();
 
-        return view('administradores.index', compact('administradores'));
+        return view('administradores.index', compact('administradores','administrador'));
     }
 
         /**

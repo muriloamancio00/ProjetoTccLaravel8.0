@@ -2,12 +2,13 @@
 @extends('templates.main', ['titulo' => "Administrador", 'rota' => "administradores.create"])
 <!-- Preenche o conteúdo da seção "titulo" -->
 @section('titulo') administradores @endsection
+<!-- Preenche o conteúdo da seção "navbar" -->
+
+
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
-
     <div class="row">
-        <div class="col">
-            
+        <div class="col">            
             <!-- Utiliza o componente "datalist" criado -->
             <x-datalist 
                 :title="'administradores'"
@@ -22,3 +23,4 @@
         </div>
     </div>
 @endsection
+

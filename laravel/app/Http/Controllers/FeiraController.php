@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feira;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FeiraController extends Controller
@@ -13,6 +14,8 @@ class FeiraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
+
+       
 
         $this->authorize('viewAny', Feira::class);
 
@@ -30,6 +33,8 @@ class FeiraController extends Controller
 
         $this->authorize('create', Feira::class);
 
+
+
         return view('feiras.create');
     }
 
@@ -42,6 +47,38 @@ class FeiraController extends Controller
     public function store(Request $request) {
          
         $this->authorize('create', Feira::class);
+
+
+        $regras = [
+            'endereco' => 'required|max:50|min:5',
+            'diaSemana' => 'required|max:50|min:5',
+            'horario' => 'required|max:20|min:2',
+        ];
+
+        $msgs = [
+            "required" => "O preenchimento do campo [:attribute] é obrigatório!",
+            "max" => "O campo [:attribute] possui tamanho máximo de [:max] caracteres!",
+            "min" => "O campo [:attribute] possui tamanho mínimo de [:min] caracteres!",
+            "unique" => "Já existe um endereço cadastrado com esse [:attribute]!"
+        ];
+
+        $request->validate($regras, $msgs);
+
+        
+
+
+
+        Feira::create([
+            'endereco' => $request->endereco,
+            'diaSemana' => $request->diaSemana,
+            'horario' => $request->horario,
+            'id_Administrador' => 1,
+        ]);
+
+
+        
+        return redirect()->route('feiras.index');
+
     }
 
     /**

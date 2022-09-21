@@ -16,9 +16,10 @@ class TipoEventoSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 10; $i++) {
-            DB::table('tipoEvento')->insert([
+            DB::table('tipoEventos')->insert([
                 'nome' => Str::random(15),
-                'curso_id' => $i,
+                'descricao' => Str::random(15),
+                'ativo' => 1,
             ]);
         }
     }

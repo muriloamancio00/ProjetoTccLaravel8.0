@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ListaProduto extends Model
 {
     use HasFactory;
+
+    public function listaProduto() {
+        return $this->belongsTo('App\Models\Banca');
+    }
 }

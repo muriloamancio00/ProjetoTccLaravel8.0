@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TipoEvento extends Model
 {
     use HasFactory;
+
+    public function tipoEvento() {
+        return $this->belongsTo('App\Models\Evento');
+    }
 }

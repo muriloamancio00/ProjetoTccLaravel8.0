@@ -12,9 +12,12 @@ class TipoEventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $this->authorize('viewAny', Feira::class);
+
+        $tipoEvento = TipoEvento::all();
+
+        return view('tipoEventos.index', compact('tipoEvento'));
     }
 
     /**
@@ -22,9 +25,11 @@ class TipoEventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+
+        $this->authorize('create', TipoEvento::class);
+
+        return view('tipoEventos.create');
     }
 
     /**
@@ -33,9 +38,9 @@ class TipoEventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+
+        $this->authorize('create', Feira::class);
     }
 
     /**
@@ -44,9 +49,11 @@ class TipoEventoController extends Controller
      * @param  \App\Models\TipoEvento  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoEvento $tipoEvento)
-    {
-        //
+    public function show(TipoEvento $tipoEvento) {
+
+        $this->authorize('view', $tipoEvento);
+    
+        return view('tipoEventos.show');
     }
 
     /**
@@ -55,9 +62,11 @@ class TipoEventoController extends Controller
      * @param  \App\Models\TipoEvento  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoEvento $tipoEvento)
-    {
-        //
+    public function edit(TipoEvento $tipoEvento) {
+
+         $this->authorize('update', $tipoEvento);
+
+        return view('tipoEventos.edit');
     }
 
     /**
@@ -67,9 +76,9 @@ class TipoEventoController extends Controller
      * @param  \App\Models\TipoEvento  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoEvento $tipoEvento)
-    {
-        //
+    public function update(Request $request, TipoEvento $tipoEvento) {
+
+        $this->authorize('update', $tipoEvento);
     }
 
     /**
@@ -78,8 +87,10 @@ class TipoEventoController extends Controller
      * @param  \App\Models\TipoEvento  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoEvento $tipoEvento)
-    {
-        //
+    public function destroy(TipoEvento $tipoEvento) {
+
+        $this->authorize('delete', $tipoEvento);
+
+        return view('tipoEventos.destroy');
     }
 }

@@ -38,11 +38,15 @@
                                 </svg>
                                 <span class="ps-1 text-white">Organização</span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{route('administradores.index')}}" class="dropdown-item">Administrador</a></li>
-                                <li><a href="{{route('feiras.index')}}" class="dropdown-item">Feiras</a></li>
-                            </ul>
-                        </li>
+                            @if(isset($rota))
+                                @can('create', $permission)
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{route('administradores.index')}}" class="dropdown-item">Administrador</a></li>
+                                        <li><a href="{{route('feiras.index')}}" class="dropdown-item">Feiras</a></li>
+                                    </ul>
+                                @endcan
+                            @endif
+                        </li>    
                         <li class="nav-item ps-2 me-3">
                             <form method="POST" action="{{ route('logout') }}" id="form">
                                 @csrf  
@@ -78,7 +82,7 @@
         </div>
         <nav class="navbar fixed-bottom navbar-dark bg-secondary">
             <div class="container-fluid">
-                <span class="text-white fw-light">&copy; Murilo A.S
+                <span class="text-white fw-light">&copy;<b>{{ Auth::user()->name}}</b>
                 </span>
             </div>
         </nav>
