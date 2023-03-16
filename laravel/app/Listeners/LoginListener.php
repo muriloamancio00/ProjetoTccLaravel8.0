@@ -28,8 +28,5 @@ class LoginListener
      */
     public function handle($event)
     {
-        Mail::to($event->user)->send(
-            new NewLogin($event->user)
-        );
     }
 }

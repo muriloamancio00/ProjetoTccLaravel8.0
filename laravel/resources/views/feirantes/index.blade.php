@@ -1,4 +1,4 @@
-@extends('templates.middleware', [
+@extends('templates.main', [
 
     'titulo' => "Feirates",
 
