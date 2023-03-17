@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Banca;
-use App\Models\User;
+use App\Models\BancaModel;
+use App\Models\UserModel;
 use App\Facades\UserPermissions;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -14,31 +14,31 @@ class BancaPolicy {
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\UserModel  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
 
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Auth\Access\Response|bool
      */
 
-    public function viewAny(User $user) {
+    public function viewAny(UserModel $user) {
 
         return UserPermissions::isAuthorized('bancas.index');
     }
-        
+
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Banca $banca)
+    public function view(UserModel $user, BancaModel $banca)
     {
         return UserPermissions::isAuthorized('bancas.show');
 
@@ -47,10 +47,10 @@ class BancaPolicy {
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\UserModel  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(UserModel $user)
     {
         return UserPermissions::isAuthorized('bancas.create');
     }
@@ -58,11 +58,11 @@ class BancaPolicy {
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Banca $banca)
+    public function update(UserModel $user, BancaModel $banca)
     {
         return UserPermissions::isAuthorized('bancas.edit');
 
@@ -71,11 +71,11 @@ class BancaPolicy {
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Banca $banca)
+    public function delete(UserModel $user, BancaModel $banca)
     {
         return UserPermissions::isAuthorized('bancas.destroy');
     }
@@ -83,11 +83,11 @@ class BancaPolicy {
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Banca $banca)
+    public function restore(UserModel $user, BancaModel $banca)
     {
         //
     }
@@ -95,11 +95,11 @@ class BancaPolicy {
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Banca $banca)
+    public function forceDelete(UserModel $user, BancaModel $banca)
     {
         //
     }

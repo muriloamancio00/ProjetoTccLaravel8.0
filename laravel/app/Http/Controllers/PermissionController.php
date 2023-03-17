@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Permission;
+use App\Models\PermissionModel;
 
 use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    
+
 //-> classe que gerencia as permissoes do usuario
 
     public static function loadPermissions($user_type) {
 
         $sess = Array();
-        $perm = Permission::where('type_id', $user_type)->get();
+        $perm = PermissionModel::where('type_id', $user_type)->get();
 
         foreach($perm as $item) {
 

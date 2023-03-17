@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Feira extends Model {
+class FeiraModel extends Model {
 
     use HasFactory;
 
@@ -15,11 +15,11 @@ class Feira extends Model {
         'diaSemana',
         'id_Administrador',
     ];
-        
+
 
     public function feira__bancas() {
-        return $this->hasMany('\App\Models\Feira_Banca');
+        return $this->hasMany('\App\Models\Feira_BancaModel');
     }
-        
+
 
 }

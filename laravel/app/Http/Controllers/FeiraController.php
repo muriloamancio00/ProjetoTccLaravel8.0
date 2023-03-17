@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feira;
+use App\Models\FeiraModel;
 use Illuminate\Http\Request;
 
 class FeiraController extends Controller
@@ -14,10 +14,10 @@ class FeiraController extends Controller
      */
     public function index() {
 
-        $this->authorize('viewAny', Feira::class);
+        $this->authorize('viewAny', FeiraModel::class);
 
-        
-        $feiras = Feira::with(['feira__bancas'])->get();
+
+        $feiras = FeiraModel::with(['feira__bancas'])->get();
 
         return view('feiras.index', compact('feiras'));
     }
@@ -29,7 +29,7 @@ class FeiraController extends Controller
      */
     public function create() {
 
-        $this->authorize('create', Feira::class);
+        $this->authorize('create', FeiraModel::class);
 
         return view('feiras.create');
     }
@@ -41,8 +41,8 @@ class FeiraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-         
-        $this->authorize('create', Feira::class);
+
+        $this->authorize('create', FeiraModel::class);
 
 
         $regras = [
@@ -60,7 +60,7 @@ class FeiraController extends Controller
 
         $request->validate($regras, $msgs);
 
-        Feira::create([
+        FeiraModel::create([
             'endereco' => $request->endereco,
             'diaSemana' => $request->diaSemana,
             'horario' => $request->horario,
@@ -74,23 +74,23 @@ class FeiraController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Http\Response
      */
-    public function show(Feira $feiras) {
-        
+    public function show(FeiraModel $feiras) {
+
         $this->authorize('view', $feiras);
-    
+
         return view('feiras.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Http\Response
      */
-    public function edit(Feira $feira) {
+    public function edit(FeiraModel $feira) {
 
         $this->authorize('update', $feira);
 
@@ -101,10 +101,10 @@ class FeiraController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feira $feira) {
+    public function update(Request $request, FeiraModel $feira) {
 
         $this->authorize('update', $feira);
     }
@@ -112,10 +112,10 @@ class FeiraController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feira $feira) {
+    public function destroy(FeiraModel $feira) {
 
         $this->authorize('delete', $feira);
 

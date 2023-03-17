@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class PermissionModel extends Model
 {
-    use HasFactory;  
+    use HasFactory;
 
     public function resource() {
-        
-        return $this->belongsTo('\App\Models\Resource');
-        
+
+        return $this->belongsTo('\App\Models\ResourceModel');
+
     }
 
     public function role() {
 
-        return $this->belongsTo('\App\Models\Role');
+        return $this->belongsTo('\App\Models\RoleModel');
     }
 
 

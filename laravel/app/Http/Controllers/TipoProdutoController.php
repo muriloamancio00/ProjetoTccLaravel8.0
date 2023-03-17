@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoProduto;
+use App\Models\TipoProdutoModel;
 use Illuminate\Http\Request;
 
 class TipoProdutoController extends Controller
@@ -41,10 +41,10 @@ class TipoProdutoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\TipoProdutoModel  $tipoProduto
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoProduto $tipoProduto)
+    public function show(TipoProdutoModel $tipoProduto)
     {
         //
     }
@@ -52,10 +52,10 @@ class TipoProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\TipoProdutoModel  $tipoProduto
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoProduto $tipoProduto)
+    public function edit(TipoProdutoModel $tipoProduto)
     {
         //
     }
@@ -64,10 +64,10 @@ class TipoProdutoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\TipoProdutoModel  $tipoProduto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoProduto $tipoProduto)
+    public function update(Request $request, TipoProdutoModel $tipoProduto)
     {
         //
     }
@@ -75,10 +75,10 @@ class TipoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\TipoProdutoModel  $tipoProduto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoProduto $tipoProduto)
+    public function destroy(TipoProdutoModel $tipoProduto)
     {
         //
     }

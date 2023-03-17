@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\UserModel;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use App\Models\Role;
+use App\Models\RoleModel;
 use App\Facades\UserPermissions;
 
 class RegisteredUserController extends Controller
@@ -22,7 +22,7 @@ class RegisteredUserController extends Controller
      */
     public function create() {
 
-        $roles = Role::orderBy('name')->get();
+        $roles = RoleModel::orderBy('name')->get();
         return view('auth.register', compact('roles'));
     }
 
@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
         ]);
 
 
-        $user = new User;
+        $user = new UserModel;
 
         $user->name = $request->name;
         $user->email = $request->email;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
+use App\Models\ProdutoModel;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -14,9 +14,9 @@ class ProdutoController extends Controller
      */
     public function index() {
 
-        $this->authorize('viewAny', Produto::class);
+        $this->authorize('viewAny', ProdutoModel::class);
 
-        $produtos = Produto::all();
+        $produtos = ProdutoModel::all();
 
         return view('produtos.index', compact('produtos'));
     }
@@ -39,7 +39,7 @@ class ProdutoController extends Controller
      */
     public function store(Request $request) {
 
-        $this->authorize('create', Produto::class);
+        $this->authorize('create', ProdutoModel::class);
 
         return view('produtos.create');
     }
@@ -47,10 +47,10 @@ class ProdutoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\ProdutoModel  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
+    public function show(ProdutoModel $produto)
     {
         //
     }
@@ -58,10 +58,10 @@ class ProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\ProdutoModel  $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produto $produto)
+    public function edit(ProdutoModel $produto)
     {
         //
     }
@@ -70,10 +70,10 @@ class ProdutoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\ProdutoModel  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, ProdutoModel $produto)
     {
         //
     }
@@ -81,10 +81,10 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\ProdutoModel  $produto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produto $produto)
+    public function destroy(ProdutoModel $produto)
     {
         //
     }

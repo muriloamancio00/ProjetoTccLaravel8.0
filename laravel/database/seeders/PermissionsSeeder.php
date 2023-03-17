@@ -16,7 +16,7 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-        
+
         for ($i = 1; $i <= 2; $i++) {
             for ($j = 1; $j <= 36; $j++) {
 
@@ -27,7 +27,5 @@ class PermissionsSeeder extends Seeder
                 ]);
             }
         }
-
-
     }
 }

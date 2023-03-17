@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoEvento;
+use App\Models\TipoEventoModel;
 use Illuminate\Http\Request;
 
 class TipoEventoController extends Controller
@@ -15,7 +15,7 @@ class TipoEventoController extends Controller
     public function index() {
         $this->authorize('viewAny', Feira::class);
 
-        $tipoEvento = TipoEvento::all();
+        $tipoEvento = TipoEventoModel::all();
 
         return view('tipoEventos.index', compact('tipoEvento'));
     }
@@ -27,7 +27,7 @@ class TipoEventoController extends Controller
      */
     public function create() {
 
-        $this->authorize('create', TipoEvento::class);
+        $this->authorize('create', TipoEventoModel::class);
 
         return view('tipoEventos.create');
     }
@@ -46,23 +46,23 @@ class TipoEventoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TipoEvento  $tipoEvento
+     * @param  \App\Models\TipoEventoModel  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoEvento $tipoEvento) {
+    public function show(TipoEventoModel $tipoEvento) {
 
         $this->authorize('view', $tipoEvento);
-    
+
         return view('tipoEventos.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TipoEvento  $tipoEvento
+     * @param  \App\Models\TipoEventoModel  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoEvento $tipoEvento) {
+    public function edit(TipoEventoModel $tipoEvento) {
 
          $this->authorize('update', $tipoEvento);
 
@@ -73,10 +73,10 @@ class TipoEventoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TipoEvento  $tipoEvento
+     * @param  \App\Models\TipoEventoModel  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoEvento $tipoEvento) {
+    public function update(Request $request, TipoEventoModel $tipoEvento) {
 
         $this->authorize('update', $tipoEvento);
     }
@@ -84,10 +84,10 @@ class TipoEventoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TipoEvento  $tipoEvento
+     * @param  \App\Models\TipoEventoModel  $tipoEvento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoEvento $tipoEvento) {
+    public function destroy(TipoEventoModel $tipoEvento) {
 
         $this->authorize('delete', $tipoEvento);
 

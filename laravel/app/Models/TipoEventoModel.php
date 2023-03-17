@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produto extends Model
+class TipoEventoModel extends Model
 {
     use HasFactory;
 
-    public function produto() {
-        return $this->belongsTo('App\Models\ListaProduto');
+    public function tipoEvento() {
+        return $this->belongsTo('App\Models\EventoModel');
     }
 }

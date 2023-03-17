@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feirante;
+use App\Models\FeiranteModel;
 use App\Facades\UserPermissions;
 use Illuminate\Http\Request;
 
@@ -21,12 +21,12 @@ class FeiranteController extends Controller
 
         }
 
-        $feirantes = Feirante::all();
+        $feirantes = FeiranteModel::all();
 
         $permissions = session('user_permissions');
 
         return view('feirantes.index', compact('permissions','feirantes'));
-        
+
     }
 
     /**
@@ -38,9 +38,9 @@ class FeiranteController extends Controller
     {
 
         if(!UserPermissions::isAuthorized('feirantes.create')) {
-        
+
             abort(403);
-        
+
         }
 
         return view('feirantes.create');
@@ -54,7 +54,7 @@ class FeiranteController extends Controller
      */
     public function store(Request $request){
 
-        Feirante::create([
+        FeiranteModel::create([
             "nome" => mb_strtoupper($request->nome),
             "senha" => ($request->senha),
             "email" => ($request->email),
@@ -67,10 +67,10 @@ class FeiranteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Feirante  $feirante
+     * @param  \App\Models\FeiranteModel  $feirante
      * @return \Illuminate\Http\Response
      */
-    public function show(Feirante $feirante)
+    public function show(FeiranteModel $feirante)
     {
         return view('feirantes.show', compact(['feirante']));
     }
@@ -78,10 +78,10 @@ class FeiranteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Feirante  $feirante
+     * @param  \App\Models\FeiranteModel  $feirante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Feirante $feirante)
+    public function edit(FeiranteModel $feirante)
     {
         return view('feirantes.edit', compact(['feirante']));
     }
@@ -90,15 +90,15 @@ class FeiranteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Feirante  $feirante
+     * @param  \App\Models\FeiranteModel  $feirante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feirante $feirante){
+    public function update(Request $request, FeiranteModel $feirante){
 
         if(!UserPermissions::isAuthorized('feirantes.create')) {
-        
+
             abort(403);
-        
+
         }
 
         $feirante->update([
@@ -115,15 +115,15 @@ class FeiranteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Feirante  $feirante
+     * @param  \App\Models\FeiranteModel  $feirante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feirante $feirante)
+    public function destroy(FeiranteModel $feirante)
     {
         if(!UserPermissions::isAuthorized('feirantes.destroy')) {
-        
+
             abort(403);
-        
+
         }
 
         $feirante->delete();

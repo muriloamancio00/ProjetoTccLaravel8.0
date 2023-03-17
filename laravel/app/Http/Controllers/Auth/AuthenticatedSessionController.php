@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\Auth\LoginRequest;
-use App\Models\Administrador;
+use App\Models\AdministradorModel;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +16,8 @@ use App\Events\HomeEvent;
 class AuthenticatedSessionController extends Controller {
 
     protected $policies = [
-    
-        Administrador::class => AdministradorPolicy::class,
+
+        AdministradorModel::class => AdministradorPolicy::class,
     ];
 
     /**
@@ -37,7 +37,7 @@ class AuthenticatedSessionController extends Controller {
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request){
-        
+
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -51,7 +51,7 @@ class AuthenticatedSessionController extends Controller {
         event(new HomeEvent("Parâmetro Evento"));
 
         return redirect()->intended(RouteServiceProvider::HOME);
-        
+
     }
 
     /**

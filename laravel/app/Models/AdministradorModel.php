@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Feirante extends Model
+class AdministradorModel extends Model
 {
     use HasFactory;
 
@@ -15,5 +15,9 @@ class Feirante extends Model
         'password',
         'type_id',
     ];
+
+    public function feira() {
+        return $this->belongsToMany('\App\Models\FeiraModel', 'feiras');
+    }
 
 }

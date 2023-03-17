@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Banca;
-use App\Models\Feira;
-use App\Models\ListaProduto;
+use App\Models\BancaModel;
+use App\Models\FeiraModel;
+use App\Models\ListaProdutoModel;
 use Illuminate\Http\Request;
 
 class BancaController extends Controller
@@ -16,9 +16,9 @@ class BancaController extends Controller
      */
     public function index()
     {
-        $this->authorize('viewAny', Banca::class);
+        $this->authorize('viewAny', BancaModel::class);
 
-        $bancas = Banca::with(['feira__bancas'])->get();
+        $bancas = BancaModel::with(['feira__bancas'])->get();
 
         //$bancas = Banca::all();
 
@@ -35,11 +35,11 @@ class BancaController extends Controller
     public function create()
     {
 
-        $this->authorize('create', Banca::class);
+        $this->authorize('create', BancaModel::class);
 
-        $feiras = Feira::orderBy('id')->get();
+        $feiras = FeiraModel::orderBy('id')->get();
 
-        $listas = ListaProduto::orderBy('id')->get();
+        $listas = ListaProdutoModel::orderBy('id')->get();
 
         return view('bancas.create', compact(['feiras','listas']));
     }
@@ -52,7 +52,7 @@ class BancaController extends Controller
      */
     public function store(Request $request) {
 
-        $this->authorize('create', Banca::class);
+        $this->authorize('create', BancaModel::class);
 
 
         $regras = [
@@ -68,7 +68,7 @@ class BancaController extends Controller
 
         $request->validate($regras, $msgs);
 
-        Banca::create([
+        BancaModel::create([
             'nome' => $request->nome,
             'id_feira' => $request->id_feira,
             'id_listaProduto' => $request->id_listaProduto,
@@ -81,10 +81,10 @@ class BancaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Http\Response
      */
-    public function show(Banca $banca)
+    public function show(BancaModel $banca)
     {
         //
     }
@@ -92,10 +92,10 @@ class BancaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banca $banca)
+    public function edit(BancaModel $banca)
     {
         //
     }
@@ -104,10 +104,10 @@ class BancaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Banca $banca)
+    public function update(Request $request, BancaModel $banca)
     {
         //
     }
@@ -115,10 +115,10 @@ class BancaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Banca  $banca
+     * @param  \App\Models\BancaModel  $banca
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banca $banca)
+    public function destroy(BancaModel $banca)
     {
         //
     }

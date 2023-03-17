@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Feira;
-use App\Models\User;
+use App\Models\FeiraModel;
+use App\Models\UserModel;
 use App\Facades\UserPermissions;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -14,31 +14,31 @@ class FeiraPolicy {
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\UserModel  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
 
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Auth\Access\Response|bool
      */
 
-    public function viewAny(User $user) {
+    public function viewAny(UserModel $user) {
 
         return UserPermissions::isAuthorized('feiras.index');
     }
-        
+
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Feira $feira)
+    public function view(UserModel $user, FeiraModel $feira)
     {
         return UserPermissions::isAuthorized('feiras.show');
 
@@ -47,10 +47,10 @@ class FeiraPolicy {
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\UserModel  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(UserModel $user)
     {
         return UserPermissions::isAuthorized('feiras.create');
     }
@@ -58,11 +58,11 @@ class FeiraPolicy {
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Feira $feira)
+    public function update(UserModel $user, FeiraModel $feira)
     {
         return UserPermissions::isAuthorized('feiras.edit');
 
@@ -71,11 +71,11 @@ class FeiraPolicy {
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Feira $feira)
+    public function delete(UserModel $user, FeiraModel $feira)
     {
         return UserPermissions::isAuthorized('feiras.destroy');
     }
@@ -83,11 +83,11 @@ class FeiraPolicy {
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Feira $feira)
+    public function restore(UserModel $user, FeiraModel $feira)
     {
         //
     }
@@ -95,11 +95,11 @@ class FeiraPolicy {
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\UserModel  $user
+     * @param  \App\Models\FeiraModel  $feira
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Feira $feira)
+    public function forceDelete(UserModel $user, FeiraModel $feira)
     {
         //
     }
