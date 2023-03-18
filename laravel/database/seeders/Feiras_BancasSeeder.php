@@ -16,11 +16,11 @@ class Feiras_BancasSeeder extends Seeder
      */
     public function run()
     {
-        
+
         for ($i = 1; $i <= 10; $i++) {
             for ($j = 1; $j <= 10; $j++) {
 
-                DB::table('feira__bancas')->insert([
+                DB::table('feira_bancas')->insert([
                     'feira_id' => $j,
                     'banca_id' => $i,
                     'descricao' => Str::random(15),

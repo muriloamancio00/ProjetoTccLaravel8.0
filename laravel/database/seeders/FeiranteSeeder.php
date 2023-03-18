@@ -16,20 +16,20 @@ class FeiranteSeeder extends Seeder
      */
     public function run()
     {
-        
+
         DB::table('feirantes')->insert([
-            'name' => 'Helena Karol Pinheiro Maia',
+            'nome' => 'Helena Karol Pinheiro Maia',
             'email' => 'helenamaia@hotmail.com',
-            'password' => Hash::make('11111111'),
+            'senha' => Hash::make('11111111'),
             'status' => 1,
             'role_id' => 2,
         ]);
 
         for ($i = 1; $i <= 10; $i++) {
             DB::table('feirantes')->insert([
-                'name' => Str::random(15),
+                'nome' => Str::random(15),
                 'email'=>Str::random(15),
-                'password' =>Hash::make('11111111'),
+                'senha' =>Hash::make('11111111'),
                 'status' => 1,
                 'role_id' => 2,
             ]);

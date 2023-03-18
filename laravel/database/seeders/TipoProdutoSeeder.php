@@ -18,7 +18,7 @@ class TipoProdutoSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             DB::table('tipoprodutos')->insert([
                 'id' => $i,
-                'name' => Str::random(15),
+                'nome' => Str::random(15),
                 'descricao' => Str::random(50),
                 'ativo' =>  rand(0, 1),
             ]);

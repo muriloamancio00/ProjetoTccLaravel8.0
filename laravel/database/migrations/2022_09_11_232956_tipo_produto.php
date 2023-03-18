@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tipoProdutos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nome');
             $table->string('descricao')->nullable();
             $table->integer('ativo');
             $table->timestamps();
@@ -24,7 +24,7 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *    
+     *
      *
      * @return void
      */

@@ -22,7 +22,7 @@ class FeiraSeeder extends Seeder
                 'endereco' => $faker->streetName,
                 'horario' => $faker->time('H_i_s'),
                 'diaSemana' => $faker->dayOfWeek(),
-                'id_Administrador' => $faker->randomElement([1, 2]),
+                'id_Administrador'=>1,
             ]);
 
         }

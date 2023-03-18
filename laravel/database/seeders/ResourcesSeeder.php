@@ -22,12 +22,12 @@ class ResourcesSeeder extends Seeder
         foreach ($arr_cat as $cat) {
             foreach ($arr_pag as $pag) {
                 DB::table('resources')->insert([
-                    'name' => $cat . '.' . $pag,
+                    'nome' => $cat . '.' . $pag,
                 ]);
             }
         }
 
 
-        
+
     }
 }

@@ -15,8 +15,8 @@ class CreateAdministradorsTable extends Migration
     {
         Schema::create('administradors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('password');
+            $table->string('nome');
+            $table->string('senha');
             $table->string('email');
             $table->integer('status');
             $table->unsignedBigInteger('role_id');
