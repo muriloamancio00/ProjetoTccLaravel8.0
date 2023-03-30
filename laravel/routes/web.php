@@ -28,15 +28,19 @@ Route::get('/', function () {
         return UserPermissions::test();
     });
 */
-    
 
-Route::get('/dashboard', function () {
-    return view('templates.main')->with('titulo', "");
+//homes por agora, qual prosseguir ?????????? /main , /home
+Route::get('/main3', function () {
+    return view('templates.generic')->with('titulo', "");
 })->middleware(['auth'])->name('index');
 
-Route::get('/home', function () {
+Route::get('/main2', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/main1', function () {
+    return view('templates.antigo')->with('titulo', "");
+})->middleware(['auth'])->name('index');
 
 
 Route::resource('feiras', '\App\Http\Controllers\FeiraController')

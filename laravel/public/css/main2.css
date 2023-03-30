@@ -1,0 +1,36 @@
+body {
+    background-color: #f8f9fa;
+}
+.navbar {
+    background-color: #343a40;
+    color: #fff;
+}
+.navbar-brand {
+    font-weight: bold;
+}
+.nav-link {
+    color: #fff;
+}
+.jumbotron {
+    background-color: #fff;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.titulo {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.card {
+    border: none;
+    box-shadow: 0px 0px 10px #c4c4c4;
+    margin-bottom: 2rem;
+}
+.card-header {
+    background-color: #343a40;
+    color: #fff;
+    font-weight: bold;
+}
+.card-body {
+    padding: 2rem;
+}
