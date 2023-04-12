@@ -30,6 +30,11 @@ Route::get('/', function () {
 */
 
 //homes por agora, qual prosseguir ?????????? /main , /home
+
+Route::get('/main4', function () {
+    return view('templates.principal')->with('titulo', "");
+})->middleware(['auth'])->name('index');
+
 Route::get('/main3', function () {
     return view('templates.generic')->with('titulo', "");
 })->middleware(['auth'])->name('index');
