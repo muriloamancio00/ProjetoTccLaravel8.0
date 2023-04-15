@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
+
 
 class FeiraSeeder extends Seeder
 {
@@ -15,11 +17,14 @@ class FeiraSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        $faker = Faker::create();
+
+        for ($i = 1; $i < 10; $i++) {
             DB::table('feiras')->insert([
-                'endereco' => Str::random(15),
-                'horario' => Str::random(15),
-                'diaSemana' => Str::random(15),
+                'nome'=> $faker->sentence($nbWords = 3, $variableNbWords = true),
+                'endereco' => $faker->streetAddress,
+                'horario' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'diaSemana' => $faker->dayOfWeek,
                 'id_Administrador'=>1,
             ]);
         }

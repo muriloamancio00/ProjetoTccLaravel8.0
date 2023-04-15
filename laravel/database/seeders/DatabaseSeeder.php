@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
      * php artisan make:seeder BancaSeeder
      * php artisan make:seeder ProdutoSeeder
      *
-     * 
+     *
      */
 
         $this->call(RolesSeeder::class);
@@ -36,10 +36,10 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoEventoSeeder::class);
         $this->call(ListaProdutoSeeder::class);
         $this->call(FeiraSeeder::class);
-        $this->call(BancaSeeder::class);
-        $this->call(Feiras_BancasSeeder::class);
-        $this->call(ProdutoSeeder::class);
+        //$this->call(BancaSeeder::class);
+        //$this->call(Feiras_BancasSeeder::class);
+        //$this->call(ProdutoSeeder::class);
         //
-        
+
     }
 }

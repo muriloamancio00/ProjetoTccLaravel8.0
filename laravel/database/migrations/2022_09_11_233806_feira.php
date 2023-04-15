@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('feiras', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
             $table->string('endereco');
             $table->string('horario');
             $table->string('diaSemana')->nullable();

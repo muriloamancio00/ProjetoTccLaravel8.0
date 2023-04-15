@@ -10,16 +10,17 @@ class Feira extends Model {
     use HasFactory;
 
     protected $fillable = [
+        'nome',
         'endereco',
         'horario',
         'diaSemana',
         'id_Administrador',
     ];
-        
+
 
     public function feira__bancas() {
         return $this->hasMany('\App\Models\Feira_Banca');
     }
-        
+
 
 }
