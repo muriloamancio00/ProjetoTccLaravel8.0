@@ -59,7 +59,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/gerencia/inicio', [GerenciaController::class, 'indexCarregada'])
     ->middleware(['auth'])
-    ->name('indexCarregada');
+    ->name('indexCarregada'
+    );
 
 //agrup por prefix
 Route::prefix('/gerencia')->name('gerencia.')->group(function(){

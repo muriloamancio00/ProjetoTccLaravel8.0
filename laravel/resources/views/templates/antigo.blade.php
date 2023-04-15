@@ -105,7 +105,7 @@
         </div>
 
         @yield('conteudo')
-
+        @yield('main')
 
         <hr>
        <!-- -->

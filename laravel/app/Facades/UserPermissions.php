@@ -14,23 +14,23 @@ class UserPermissions {
         foreach($perm as $item) {
 
             $sess[$item->resource->name] = (boolean) $item->permissao;
-        
+
         }
-    
+
         session(['user_permissions' => $sess]);
-        
+
     }
 
     public static function isAuthorized($resource) {
 
         $permissions = session('user_permissions');
-        
+
         return $permissions[$resource];
 
     }
 
     public static function test() {
-        
+
         return "<h1>UserPermissionsFacade - Running!!</h1>";
     }
 }

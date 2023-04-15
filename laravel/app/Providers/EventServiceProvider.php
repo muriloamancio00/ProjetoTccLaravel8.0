@@ -17,25 +17,26 @@ class EventServiceProvider extends ServiceProvider
 
      //Provider / Eventos - Adicionando evento “HomeEvent” e listener “HomeEventListener”.
     protected $listen = [
+        /*
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
 
         'App\Events\HomeEvent' => [
             'App\Listeners\HomeEventListener',
-            
+
         ],
-        
-        
+
+
         'Illuminate\Auth\Events\Login' => [
             'App\Listeners\LoginListener'
         ],
 
-        /*
+
         'Illuminate\Auth\Events\PasswordReset' => [
             'App\Listeners\ResetPassword'
-        ],*/    
-       
+        ],*/
+
     ];
 
     /**
