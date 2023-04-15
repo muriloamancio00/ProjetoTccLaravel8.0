@@ -1,5 +1,5 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.main', ['titulo' => "Alterar feira"])
+@extends('templates.antigo', ['titulo' => "Alterar feira"])
 <!-- Preenche o conteúdo da seção "titulo" -->
 @section('titulo') feiras @endsection
 <!-- Preenche o conteúdo da seção "conteudo" -->
@@ -11,7 +11,21 @@
     <div class="row">
         <div class="col">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control @if($errors->has('endereco')) is-invalid @endif" name="endereco" placeholder="endereco" value="{{$feira->nome}}" />
+                <input type="text" class="form-control @if($errors->has('nome')) is-invalid @endif" name="nome" placeholder="endereco" value="{{$feira->nome}}" />
+                <label for="endereco">nome da feira</label>
+                @if($errors->has('nome'))
+                    <div class='invalid-feedback'>
+                        {{ $errors->first('nome') }}
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control @if($errors->has('endereco')) is-invalid @endif" name="endereco" placeholder="endereco" value="{{$feira->endereco}}" />
                 <label for="endereco">endereco da feira</label>
                 @if($errors->has('endereco'))
                 <div class='invalid-feedback'>
@@ -26,7 +40,7 @@
     <div class="row">
         <div class="col">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control @if($errors->has('diaSemana')) is-invalid @endif" name="nome" placeholder="Nome" value="{{$feira->nome}}" />
+                <input type="text" class="form-control @if($errors->has('diaSemana')) is-invalid @endif" name="diaSemana" placeholder="Dia da Semana" value="{{$feira->diaSemana}}" />
                 <label for="diaSemana">diaSemana da feira</label>
                 @if($errors->has('diaSemana'))
                 <div class='invalid-feedback'>
@@ -40,7 +54,7 @@
     <div class="row">
         <div class="col">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control @if($errors->has('horario')) is-invalid @endif" name="nome" placeholder="Nome" value="{{$feira->nome}}" />
+                <input type="text" class="form-control @if($errors->has('horario')) is-invalid @endif" name="horario" placeholder="horario" value="{{$feira->horario}}" />
                 <label for="horario">horario da feira</label>
                 @if($errors->has('horario'))
                 <div class='invalid-feedback'>

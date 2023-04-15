@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary">
         <div class="container-fluid">
-            <a href="{{route('index')}}" class="navbar-brand ms-sm-3">
+            <a href="{{route('indexCarregada')}}" class="navbar-brand ms-sm-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-clipboard2-pulse-fill" viewBox="0 0 16 16">
                     <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
                     <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5ZM9.98 5.356 11.372 10h.128a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.479-.356l-.94-3.135-1.092 5.096a.5.5 0 0 1-.968.039L6.383 8.85l-.936 1.873A.5.5 0 0 1 5 11h-.5a.5.5 0 0 1 0-1h.191l1.362-2.724a.5.5 0 0 1 .926.08l.94 3.135 1.092-5.096a.5.5 0 0 1 .968-.039Z"/>
@@ -45,9 +45,9 @@
                                 <span class="ps-1 text-white">Organização</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('feiras.index')}}" class="dropdown-item">Feiras</a></li>
-                                <li><a href="{{route('bancas.index')}}" class="dropdown-item">Bancas</a></li>
-                                <li><a href="{{route('produtos.index')}}" class="dropdown-item">Produtos</a></li>
+                                <li><a href="{{route('gerencia.feiras.index')}}" class="dropdown-item">Feiras</a></li>
+                                <li><a href="{{route('gerencia.bancas.index')}}" class="dropdown-item">Bancas</a></li>
+                                <li><a href="{{route('gerencia.produtos.index')}}" class="dropdown-item">Produtos</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -64,10 +64,10 @@
                             <span class="ps-1 text-white">Links Uteis</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('feiras.index')}}" class="dropdown-item">Sobre</a></li>
-                            <li><a href="{{route('bancas.index')}}" class="dropdown-item">Contao</a></li>
-                            <li><a href="{{route('produtos.index')}}" class="dropdown-item">O Projeto</a></li>
-                        </ul
+                            <li><a href="{{route('gerencia.feiras.index')}}" class="dropdown-item">Feiras</a></li>
+                            <li><a href="{{route('gerencia.bancas.index')}}" class="dropdown-item">Bancas</a></li>
+                            <li><a href="{{route('gerencia.produtos.index')}}" class="dropdown-item">O Projeto</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item ps-2 me-3">
                         <form method="POST" action="{{ route('logout') }}" id="form">
@@ -88,21 +88,6 @@
 <body>
     <div class="container py-4">
         <div class="row">
-            <style>
-                .col h3 {
-                    font-size: 2rem;
-                    font-weight: bold;
-                    color: #333;
-                    margin-bottom: 1rem;
-                    text-shadow: 1px 1px #ccc;
-                }
-
-                @media (max-width: 767px) {
-                    .col h3 {
-                        font-size: 1.5rem;
-                    }
-                }
-            </style>
             <div class="col">
                 <h3 class="display-7 text-secondary d-none d-md-block"><b>{{ $titulo }}</b></h3>
             </div>
@@ -121,20 +106,7 @@
 
         @yield('conteudo')
 
-        <div class="container text-center">
-            <div class="row align-items-start">
-                <div class="col">
-                    <div class="ml-3">Meu elemento alinhado à esquerda</div>
 
-                </div>
-                <div class="col">
-                </div>
-                <div class="col">
-                    <div class="ml-3">Meu elemento alinhado à direita</div>
-
-                </div>
-            </div>
-        </div>
         <hr>
        <!-- -->
     </div>

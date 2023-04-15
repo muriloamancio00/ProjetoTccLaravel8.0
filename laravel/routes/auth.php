@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\GerenciaController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -53,4 +54,23 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+});
+
+
+Route::get('/gerencia/inicio', [GerenciaController::class, 'indexCarregada'])
+    ->middleware(['auth'])
+    ->name('indexCarregada');
+
+//agrup por prefix
+Route::prefix('/gerencia')->name('gerencia.')->group(function(){
+    Route::resource('feiras', '\App\Http\Controllers\FeiraController');
+    Route::resource('produtos', '\App\Http\Controllers\ProdutoController');
+    Route::resource('bancas', '\App\Http\Controllers\BancaController');
+})->middleware(['auth']);
+
+//agrupados por middleware
+Route::middleware('auth')->group(function () {
+    Route::resource('feiras', '\App\Http\Controllers\FeiraController');
+    Route::resource('produtos', '\App\Http\Controllers\ProdutoController');
+    Route::resource('bancas', '\App\Http\Controllers\BancaController');
 });

@@ -1,4 +1,4 @@
-@extends('templates.main', ['titulo' => "Nova Banca", 'permission' => "App/Models/Banca"])
+@extends('templates.antigo', ['titulo' => "Nova Banca", 'permission' => "App/Models/Banca"])
 
 @section('titulo') Banca @endsection
 
@@ -9,14 +9,14 @@
     <div class="row">
         <div class="col" >
             <div class="form-floating mb-3">
-                <input 
-                    type="text" 
-                    class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" 
-                    name="nome" 
+                <input
+                    type="text"
+                    class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}"
+                    name="nome"
                     placeholder="nome"
                     value="{{old('nome')}}"
                 />
-                @if($errors->has('mp,e'))
+                @if($errors->has('nome'))
                     <div class='invalid-feedback'>
                         {{ $errors->first('nome') }}
                     </div>
@@ -30,7 +30,7 @@
             <div class="form-floating mb-3">
                 <select name="id_feira" class="form-control {{ $errors->has('id_feira') ? 'is-invalid' : '' }}" required>
                 <option value="{{null}}">SELECIONE A FEIRA</option>
-                    @foreach ($feiras as $item) 
+                    @foreach ($feiras as $item)
                         <option value="{{$item->id}}">
                             {{$item->id}}
                         </option>
@@ -50,7 +50,7 @@
             <div class="form-floating mb-3">
                 <select name="id_listaProduto" class="form-control {{ $errors->has('id_listaProduto') ? 'is-invalid' : '' }}" required>
                 <option value="{{null}}">SELECIONE A FEIRA</option>
-                    @foreach ($listas as $item) 
+                    @foreach ($listas as $item)
                         <option value="{{$item->id}}">
                             {{$item->id}}
                         </option>
