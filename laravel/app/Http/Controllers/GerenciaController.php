@@ -21,7 +21,7 @@ class GerenciaController extends Controller
         $this->authorize('viewAny', [Feira::class ,Banca::class]);
         $feiras = Feira::all();
         $bancas = Banca::all();
-        //dd($feiras);
+       //dd($bancas);
 
         return view('inicio',compact('feiras','bancas'))->with('titulo', "");
     }

@@ -42,12 +42,13 @@
                                     <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                     <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
                                 </svg>
-                                <span class="ps-1 text-white">Organização</span>
+                                <span class="ps-1 text-white">Tela de Cadastros</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('gerencia.feiras.index')}}" class="dropdown-item">Feiras</a></li>
-                                <li><a href="{{route('gerencia.bancas.index')}}" class="dropdown-item">Bancas</a></li>
-                                <li><a href="{{route('gerencia.produtos.index')}}" class="dropdown-item">Produtos</a></li>
+                                <li><a href="{{route('gerencia.feiras.index')}}" class="dropdown-item">Feira</a></li>
+                                <li><a href="{{route('gerencia.bancas.index')}}" class="dropdown-item">Banca</a></li>
+                                <li><a href="{{route('gerencia.produtos.index')}}" class="dropdown-item">Produto</a></li>
+                                <li><a href="{{route('gerencia.produtos.index')}}" class="dropdown-item">Categorias</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -86,6 +87,7 @@
     </nav>
 </header>
 <body>
+
     <div class="container py-4">
         <div class="row">
             <div class="col">
@@ -163,35 +165,36 @@
         </div>
     </div>
 </div>
-
 <!-- Bootstrap 5 / JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!-- JQuery / JS -->
 <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 
 <script type="text/javascript">
-    function showInfoModal(data, fields) {
-        data = JSON.parse(data)
-        fields = JSON.parse(fields)
 
+    function showInfoModal() {
         $('#infoModal').modal().find('.modal-body').html("");
-        for(let a=0; a<fields.length; a++) {
-            $('#infoModal').modal().find('.modal-body').append("<b>" + data[fields[a]] + "</b><br>");
+        for(let a=0; a< arguments.length; a++) {
+            $('#infoModal').modal().find('.modal-body').append("<b>" + arguments[a] + "</b><br>");
         }
         $("#infoModal").modal('show');
     }
+
     function closeInfoModal() {
         $("#infoModal").modal('hide');
     }
+
     function showRemoveModal(id, nome) {
         $('#id_remove').val(id);
         $('#removeModal').modal().find('.modal-body').html("");
         $('#removeModal').modal().find('.modal-body').append("Deseja remover o registro <b class='text-danger'>'"+nome+"'</b> ?");
         $("#removeModal").modal('show');
     }
+
     function closeRemoveModal() {
         $("#removeModal").modal('hide');
     }
+
     function remove() {
         let id = $('#id_remove').val();
         let form = "form_" + $('#id_remove').val();

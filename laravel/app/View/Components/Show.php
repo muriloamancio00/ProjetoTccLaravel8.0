@@ -12,6 +12,7 @@ class Show extends Component
 {
     private Banca $bancas;
     private Feira $feiras;
+
     public function __construct(?Banca $bancas, ?Feira $feiras)
     {
         $this->bancas = $bancas;
