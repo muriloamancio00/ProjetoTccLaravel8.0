@@ -205,11 +205,11 @@
 </div>
 <br>
 <div class="container feiras py-5" style="background-color: #1a202c">
-    <h2 class="mb-4">Feiras</h2>
+    <h2 class="mb-4">Categoria de Feiras Municipais</h2>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
-                <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="Feira 1">
+                <img src="{{ asset('img/feiraArtesanato.jpg') }}" class="card-img-top" alt="Feira 1">
                 <div class="card-body">
                     <h5 class="card-title">Artesanato</h5>
                     <p class="card-text">Descrição da Feira 1.</p>
@@ -219,7 +219,7 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="Feira 2">
+                <img src="{{ asset('img/feiraAgricola.jpg') }}" class="card-img-top" alt="Feira 2">
                 <div class="card-body">
                     <h5 class="card-title">Culinária</h5>
                     <p class="card-text">Descrição da Feira 2.</p>
@@ -229,7 +229,7 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="Feira 3">
+                <img src="{{ asset('img/feiraTecnologia.jpg') }}" class="card-img-top" alt="Feira 3">
                 <div class="card-body">
                     <h5 class="card-title">Tecnologia</h5>
                     <p class="card-text">Descrição da Feira 3.</p>
@@ -244,6 +244,7 @@
 <div class="container eventos">
     <div class="row">
         <div class="col-md-4">
+            <!--<img src="{{ asset('img/feiraAgricola.pg') }}" alt="Minha Imagem"> -->
             <img src="https://picsum.photos/400/300?random=4" alt="Imagem do evento" class="img-fluid">
         </div>
         <div class="col-md-8">
