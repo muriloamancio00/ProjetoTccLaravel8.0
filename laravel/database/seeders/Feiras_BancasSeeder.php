@@ -16,18 +16,17 @@ class Feiras_BancasSeeder extends Seeder
      */
     public function run()
     {
-        
-        for ($i = 1; $i <= 10; $i++) {
-            for ($j = 1; $j <= 10; $j++) {
+        $diasSemana = [
+            ['nome' => 'Segunda-feira'],
+            ['nome' => 'Terca-feira'],
+            ['nome' => 'Quarta-feira'],
+            ['nome' => 'Quinta-feira'],
+            ['nome' => 'Sexta-feira'],
+            ['nome' => 'Sabado'],
+            ['nome' => 'Domingo'],
+        ];
 
-                DB::table('feira__bancas')->insert([
-                    'feira_id' => $j,
-                    'banca_id' => $i,
-                    'descricao' => Str::random(15),
-                ]);
-            }
-        }
-
-
+        DB::table('diaSemana')->insert($diasSemana);
     }
+
 }

@@ -8,29 +8,25 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->integer('preco');
-            $table->unsignedBigInteger('id_tipoProduto');
-            $table->foreign('id_tipoProduto')->references('id')->on('tipoProdutos');
             $table->string('descricao')->nullable();
-            $table->integer('ativo');
+            $table->unsignedBigInteger('banca_id');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('banca_id')->references('id')->on('bancas');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('produtos');
     }

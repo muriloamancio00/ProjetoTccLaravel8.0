@@ -8,29 +8,30 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('feiras', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->string('endereco');
-            $table->string('horario');
+            $table->string('horarioInicio');
+            $table->string('horarioFim')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->string('diaSemana')->nullable();
-            $table->unsignedBigInteger('id_Administrador');
-            $table->foreign('id_Administrador')->references('id')->on('users');
+            $table->unsignedBigInteger('administrador_id');
+            $table->unsignedBigInteger('diaSemana_id');
+            $table->foreign('administrador_id')->references('id')->on('users');
+            $table->foreign('diaSemana_id')->references('id')->on('diaSemana');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('feiras');
     }

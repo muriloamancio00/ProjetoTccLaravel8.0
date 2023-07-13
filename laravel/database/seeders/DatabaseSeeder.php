@@ -29,13 +29,17 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(FeiranteSeeder::class);
-        $this->call(AdministradorSeeder::class);
+        $this->call(StatusSeeder::class);
         $this->call(ResourcesSeeder::class);
         $this->call(PermissionsSeeder::class);
-        $this->call(TipoProdutoSeeder::class);
-        $this->call(TipoEventoSeeder::class);
-        $this->call(ListaProdutoSeeder::class);
+        //
+        $this->call(StatusSeeder::class);
+        $this->call(Feiras_BancasSeeder::class); // diaSemana
+        $this->call(FeiranteSeeder::class);
         $this->call(FeiraSeeder::class);
+        //$this->call(TipoProdutoSeeder::class);
+        //$this->call(TipoEventoSeeder::class);
+        //$this->call(ListaProdutoSeeder::class);
         //$this->call(BancaSeeder::class);
         //$this->call(Feiras_BancasSeeder::class);
         //$this->call(ProdutoSeeder::class);
