@@ -1,4 +1,4 @@
-@extends('templates.antigo', ['titulo' => "Novo Produto", 'permission' => "App/Models/Produto"])
+@extends('templates.main', ['titulo' => "Novo Produto", 'permission' => "App/Models/Produto"])
 
 @section('titulo')
     Produto

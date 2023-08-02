@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('endereco');
-            $table->string('horarioInicio');
             $table->string('horarioFim')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->string('diaSemana')->nullable();
             $table->unsignedBigInteger('administrador_id');
             $table->unsignedBigInteger('diaSemana_id');
+            $table->unsignedBigInteger('horarioFeira_id');
             $table->foreign('administrador_id')->references('id')->on('users');
             $table->foreign('diaSemana_id')->references('id')->on('diaSemana');
+            $table->foreign('horarioFeira_id')->references('id')->on('horariosFeira');
             $table->timestamps();
         });
     }

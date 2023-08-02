@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class show-feiras extends Component{
+class showFeiras extends Component{
     /**
      * Create a new component instance.
      */
@@ -20,6 +20,6 @@ class show-feiras extends Component{
      */
     public function render(): View|Closure|string
     {
-        return view('components.show-feiras');
+        return view('components.showFeiras');
     }
 }

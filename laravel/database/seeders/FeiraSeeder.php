@@ -22,23 +22,21 @@ class FeiraSeeder extends Seeder
         for ($i = 1; $i < 10; $i++) {
             $nome = $faker->sentence($nbWords = 3, $variableNbWords = true);
             $endereco = $faker->streetAddress;
-            $horarioInicio = $faker->time($format = 'H:i:s', $max = 'now');
             $horarioFim = $faker->optional()->time($format = 'H:i:s', $max = 'now');
             $latitude = $faker->optional()->latitude;
             $longitude = $faker->optional()->longitude;
-            $diaSemana = $faker->optional()->dayOfWeek;
             $administrador_id = 1; // Defina o ID do administrador desejado
+            $horarioFeira_id =~~ $faker->numberBetween(1,21);
             $diaSemana_id = $faker->numberBetween(1, 7); // Defina o ID do dia da semana desejado
 
             DB::table('feiras')->insert([
                 'nome' => $nome,
                 'endereco' => $endereco,
-                'horarioInicio' => $horarioInicio,
                 'horarioFim' => $horarioFim,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
-                'diaSemana' => $diaSemana,
                 'administrador_id' => $administrador_id,
+                'horarioFeira_id' => $horarioFeira_id,
                 'diaSemana_id' => $diaSemana_id,
                 'created_at' => now(),
                 'updated_at' => now(),

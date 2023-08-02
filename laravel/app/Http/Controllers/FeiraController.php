@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feira;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FeiraController extends Controller
@@ -12,11 +13,16 @@ class FeiraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $objFeira;
+    public function __construct()
+    {
+        $this->objFeira=new Feira();
+    }
     public function index() {
 
         $this->authorize('viewAny', Feira::class);
 
-        $feiras = Feira::with(['feira__bancas'])->get();
+        $feiras = Feira::all();
 
         return view('feiras.index', compact('feiras'));
     }
@@ -39,16 +45,17 @@ class FeiraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
-        $this->authorize('create', Feira::class);
-
+        //$this->authorize('create', Feira::class);
 
         $regras = [
             'nome' => 'required|max:50|min:5',
             'endereco' => 'required|max:50|min:5',
-            'diaSemana' => 'required|max:50|min:5',
-            'horario' => 'required|max:20|min:2',
+            'horarioFeira_id' => 'required',
+            'diaSemana_id' => 'required',
+            'administrador_id' => 'required',
         ];
 
         $msgs = [
@@ -60,17 +67,17 @@ class FeiraController extends Controller
 
         $request->validate($regras, $msgs);
 
-        Feira::create([
-            'nome' => $request->nome,
-            'endereco' => $request->endereco,
-            'diaSemana' => $request->diaSemana,
-            'horario' => $request->horario,
-            'id_Administrador' => 1,
+        $this->objFeira->create([
+            'nome'=>$request->nome,
+            'endereco'=>$request->endereco,
+            'horarioFeira_id'=>$request->horarioFeira_id,
+            'administrador_id'=>$request->administrador_id,
+            'diaSemana_id'=>$request->diaSemana_id,
         ]);
-
+        dd($request);
         return redirect()->route('feiras.index');
-
     }
+
 
     /**
      * Display the specified resource.

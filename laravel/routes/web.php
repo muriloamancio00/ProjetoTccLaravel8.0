@@ -2,11 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 //use App\Facades\UserPermissions;
-
+use App\Http\Controllers\FeiraController;
 Route::get('/', function () {
     return view('welcome');
-
 });
+
+Route::resource('feiras', 'FeiraController');
+
+    Route::post('/feiras',[FeiraController::class,'store']);
+    Route::get('/feiras/create',[FeiraController::class,'create']);
+    Route::get('/feiras/',[FeiraController::class,'create']);
+
 require __DIR__.'/auth.php';
 /*
     Route::get('/main4', function () {

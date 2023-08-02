@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col" >
                     <div class="form-floating mb-3">
-                        <input 
-                            type="text" 
-                            class="form-control {{ $errors->has('type_id') ? 'is-invalid' : '' }}" 
-                            name="type_id" 
+                        <input
+                            type="text"
+                            class="form-control {{ $errors->has('type_id') ? 'is-invalid' : '' }}"
+                            name="type_id"
                             placeholder="type_id"
                             value="{{old('type_id')}}"
                         />

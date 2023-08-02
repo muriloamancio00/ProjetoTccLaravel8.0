@@ -10,10 +10,10 @@
         <div class="row">
             <div class="col" >
                 <div class="form-floating mb-3">
-                    <input 
-                        type="text" 
-                        class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" 
-                        name="nome" 
+                    <input
+                        type="text"
+                        class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}"
+                        name="nome"
                         placeholder="nome"
                         value="{{old('nome')}}"
                     />

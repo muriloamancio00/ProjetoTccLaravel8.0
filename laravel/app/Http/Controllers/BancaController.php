@@ -37,7 +37,7 @@ class BancaController extends Controller
 
         $this->authorize('create', Banca::class);
 
-        $feiras = Feira::orderBy('id')->get();
+        $feiras = FeiraModel::orderBy('id')->get();
 
         $listas = ListaProduto::orderBy('id')->get();
 

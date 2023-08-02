@@ -7,19 +7,19 @@
 
     <div class="row">
         <div class="col">
-            
+
             <!-- Utiliza o componente "datalist" criado -->
-            <x-datalist 
+            <x-datalist
                 :title="'produtos'"
                 :crud="'produtos'"
-                :header="['ID','NOME','']" 
+                :header="['ID','NOME','']"
                 :fields="['id','nome',]"
                 :data="$produtos"
-                :hide="[true,true,true]" 
+                :hide="[true,true,true]"
                 :info="['id', 'nome']"
                 :remove="'nome'"
             />
         </div>
     </div>
-    
+
 @endsection

@@ -1,4 +1,4 @@
-@extends('templates.antigo', ['titulo' => "Gerenciamento de Murilo Amancio"] )
+@extends('templates.main', ['titulo' => "Gerenciamento de Murilo Amancio"] )
 <!-- Preenche o conteúdo da seção "titulo" -->
 @section('main')
 

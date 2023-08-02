@@ -12,15 +12,9 @@ class Feira extends Model {
     protected $fillable = [
         'nome',
         'endereco',
-        'horario',
-        'diaSemana',
-        'id_Administrador',
+        'horarioFeira_id',
+        'diaSemana_id',
+        'administrador_id',
     ];
-
-
-    public function feira__bancas() {
-        return $this->hasMany('\App\Models\Feira_Banca');
-    }
-
 
 }

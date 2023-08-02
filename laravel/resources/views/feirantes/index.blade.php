@@ -15,13 +15,13 @@
 
     @if(UserPermissions::isAuthorized('feirantes.create'))
         <a href= "{{ route('feirantes.create', '1') }}" class="btn btn-success">
-       
+
         </a>
     @endif
 
     @if(UserPermissions::isAuthorized('feirantes.show'))
         <a href= "{{ route('feirantes.show', '1') }}" class="btn btn-primary">
-        
+
         </a>
     @endif
 

@@ -8,15 +8,15 @@
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
     <div class="row">
-        <div class="col">            
+        <div class="col">
             <!-- Utiliza o componente "datalist" criado -->
-            <x-datalist 
+            <x-datalist
                 :title="'administradores'"
                 :crud="'Administrador'"
-                :header="['ID','NOME','']" 
+                :header="['ID','NOME','']"
                 :fields="['id','nome',]"
                 :data="$administradores"
-                :hide="[true,true,true]" 
+                :hide="[true,true,true]"
                 :info="['id', 'nome']"
                 :remove="'nome'"
             />

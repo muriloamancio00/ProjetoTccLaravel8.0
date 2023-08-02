@@ -10,16 +10,18 @@
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^10.1.5",
         "laravel/sanctum": "^3.2.1",
-        "laravel/tinker": "^2.8.1"
+        "laravel/tinker": "^2.8.1",
+        "laravelcollective/html": "^6.4",
+        "spatie/laravel-ignition": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.8",
         "fakerphp/faker": "^1.21",
         "laravel/pint": "^1.6",
         "laravel/sail": "^1.21",
         "mockery/mockery": "^1.5.1",
         "nunomaduro/collision": "^7.0.5",
-        "phpunit/phpunit": "^10.0.13",
-        "spatie/laravel-ignition": "^2.0"
+        "phpunit/phpunit": "^10.0.13"
     },
     "autoload": {
         "psr-4": {

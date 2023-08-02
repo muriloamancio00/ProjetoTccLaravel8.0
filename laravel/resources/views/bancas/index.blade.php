@@ -1,5 +1,5 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.antigo', ['titulo' => "Banca", 'rota' => "gerencia.bancas.create", 'permission' => "App/Models/Banca"] )
+@extends('templates.main', ['titulo' => "Banca", 'rota' => "gerencia.bancas.create", 'permission' => "App/Models/Banca"] )
 <!-- Preenche o conteúdo da seção "titulo" -->
 @section('titulo') Feira @endsection
 <!-- Preenche o conteúdo da seção "conteudo" -->

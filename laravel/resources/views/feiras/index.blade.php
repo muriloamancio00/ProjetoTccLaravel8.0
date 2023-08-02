@@ -1,55 +1,24 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.antigo', ['titulo' => "Feira da Economia Murilo Amancio", 'rota' => "gerencia.feiras.create", 'permission' => "App/Models/Feira"] )
+@extends('templates.main', ['titulo' => "Feira da Economia Murilo Amancio", 'rota' => "gerencia.feiras.create", 'permission' => "App/Models/Feira"] )
 <!-- Preenche o conteúdo da seção "titulo" -->
-@section('titulo')
-    Feira
-@endsection
 
 
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
 
-    <div class="" style="border-radius: 10px;margin-top: 10px;padding: 10px;background-color: rgba(12,82,40,0.54)">
-        <div class="d-flex flex-row justify-content-between">
-            <div class="card text-bg-info mb-3" style="max-width: 18rem;margin-right: 10px">
-                <div class="card-header" style="background-color: rgba(148,155,16,0.44)">Header</div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card text-bg-info mb-3" style="max-width: 18rem;margin-right: 10px">
-                <div class="card-header" style="background-color: rgba(148,155,16,0.44)">Header</div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card text-bg-info mb-3" style="max-width: 18rem;margin-right: 10px">
-                <div class="card-header" style="background-color: rgba(148,155,16,0.44)">Header</div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card text-bg-info mb-3" style="max-width: 18rem;margin-right: 10px">
-                <div class="card-header" style="background-color: rgba(148,155,16,0.44)">Header</div>
-                <div class="card-body">
-                   <!--<x-show :key="2" :items="$feiras" type="feiras"/> -->
-                </div>
-            </div>
-        </div>
-
         <div class="row">
-            <div class="col">
+            <div style="background-color: rgba(212,203,58,0.27);margin-top: 10px;border-radius: 2%" class="col">
 
                 <!-- Utiliza o componente "datalist" criado -->
                 <x-datalist
                     class="datalist"
                     :title="'feiras index'"
                     :crud="'feiras'"
-                    :header="['nome','horarios','endereço','semanal',]"
-                    :fields="['nome','horario','endereco','diaSemana',]"
+                    :header="['nome','horarios','endereço','dia da semana']"
+                    :fields="['nome','horarioFeira_id','endereco',horarioFeira_id]"
                     :data="$feiras"
                     :hide="[false,false,false,false,false]"
-                    :info="['nome','horarios']"
+                    :info="['nome','horarioFeira_id']"
                     :remove="'nome'"
                     class="datalist"
                 >

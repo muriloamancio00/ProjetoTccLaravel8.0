@@ -1,18 +1,17 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.antigo', ['titulo' => "Alterar feira"])
+@extends('templates.main', ['titulo' => "Alterar feira"])
 <!-- Preenche o conteúdo da seção "titulo" -->
 @section('titulo') feiras @endsection
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
-
-<form action="{{ route('feiras.update', $feira->id) }}" method="POST">
+<form action="{{ route('feiras.create', $feira->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="row">
         <div class="col">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control @if($errors->has('nome')) is-invalid @endif" name="nome" placeholder="endereco" value="{{$feira->nome}}" />
-                <label for="endereco">nome da feira</label>
+                <label for="nome">nome da feira</label>
                 @if($errors->has('nome'))
                     <div class='invalid-feedback'>
                         {{ $errors->first('nome') }}
@@ -55,10 +54,10 @@
         <div class="col">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control @if($errors->has('horario')) is-invalid @endif" name="horario" placeholder="horario" value="{{$feira->horario}}" />
-                <label for="horario">horario da feira</label>
-                @if($errors->has('horario'))
+                <label for="horarioInicio">horario de inicio</label>
+                @if($errors->has('horarioInicio'))
                 <div class='invalid-feedback'>
-                    {{ $errors->first('horario') }}
+                    {{ $errors->first('horarioInicio') }}
                 </div>
                 @endif
             </div>
