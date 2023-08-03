@@ -16,15 +16,24 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-        
+
         for ($i = 1; $i <= 2; $i++) {
             for ($j = 1; $j <= 36; $j++) {
 
-                DB::table('permissions')->insert([
-                    'resource_id' => $j,
-                    'role_id' => $i,
-                    'permissao' => 1,
-                ]);
+                if($i == 1){
+                    DB::table('permissions')->insert([
+                        'resource_id' => $j,
+                        'role_id' => $i,
+                        'permissao' => 1,
+                    ]);
+                }
+                else{
+                    DB::table('permissions')->insert([
+                        'resource_id' => $j,
+                        'role_id' => $i,
+                        'permissao' => 0,
+                    ]);
+                }
             }
         }
 

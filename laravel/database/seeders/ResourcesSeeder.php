@@ -16,7 +16,7 @@ class ResourcesSeeder extends Seeder
      */
     public function run() {
 
-        $arr_cat = ['administradores', 'feirantes', 'bancas', 'eventos', 'feiras', 'listaProdutos', 'produtos', 'tipoEventos', 'tipoProdutos'];
+        $arr_cat = ['administradores', 'feirantes', 'bancas', 'eventos', 'feiras', 'listaProdutos', 'produtos','categorias', 'horarios',];
         $arr_pag = ['index', 'create', 'edit', 'show'];
 
         foreach ($arr_cat as $cat) {
@@ -28,6 +28,6 @@ class ResourcesSeeder extends Seeder
         }
 
 
-        
+
     }
 }

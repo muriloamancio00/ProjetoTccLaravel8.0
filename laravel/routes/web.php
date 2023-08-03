@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Facades\UserPermissions;
+use App\Facades\FeirantePermissions;
 use App\Http\Controllers\FeiraController;
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +12,8 @@ Route::resource('feiras', 'FeiraController');
     Route::post('/feiras',[FeiraController::class,'store']);
     Route::get('/feiras/create',[FeiraController::class,'create']);
     Route::get('/feiras/',[FeiraController::class,'create']);
+Route::get('horarios/{id}/edit', 'HorarioController@edit')->name('horarios.edit');
+Route::get('horarios/{id}/destroy', 'HorarioController@edit')->name('horarios.destroy');
 
 require __DIR__.'/auth.php';
 /*
@@ -28,11 +30,11 @@ require __DIR__.'/auth.php';
     })->middleware(['auth'])->name('dashboard');
 */
 
-/*
+
     Route::get('/testfacade', function () {
-        return App\Facades\UserPermissionsFacade::test();
+        return App\Facades\FeirantePermissionsFacade::test();
     });
     Route::get('/testfacade1', function () {
-        return UserPermissions::test();
+        return FeirantePermissions::test();
     });
-*/
+

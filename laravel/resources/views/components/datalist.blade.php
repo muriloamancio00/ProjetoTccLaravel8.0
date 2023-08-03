@@ -1,7 +1,9 @@
 <div>
 
     <table class="table align-middle caption-top table-striped">
-        <caption>Tabela de <b>{{ $title }}</b></caption>
+        @if($title)
+            <caption>Tabela de <b>{{ $title }}</b></caption>
+        @endif
         <thead>
         <tr>
             @php $cont=0; @endphp
@@ -27,7 +29,7 @@
                         @else
                             <td>{{ $item[$field] }}</td>
                         @endif
-                        @php $cont=0; @endphp
+                        @php $cont++; @endphp
                     @endforeach
                     <td>
                             <a href= "{{ route($crud.'.edit', $item['id']) }}" class="btn btn-success">

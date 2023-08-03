@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Administrador;
 use App\Models\Categorias;
+use App\Models\Feira;
 use Illuminate\Http\Request;
 
 
@@ -13,9 +15,19 @@ class CategoriasController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        //$this->authorize('viewAny','categorias');
+    }
     public function index()
     {
-        return view('categoria.index');
+        return view('categorias.index');
+
+        $categorias = Categorias::all();
+        $administradores = Administrador::all();
+        $feiras = Feira::all();
+
+        return view('feiras.index', compact('categorias','administradores','feiras'));
     }
 
     /**
@@ -23,7 +35,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorias.create');
     }
 
     /**

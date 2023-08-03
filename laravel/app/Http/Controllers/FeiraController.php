@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feira;
+use App\Models\Horario;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,9 @@ class FeiraController extends Controller
     private $objFeira;
     public function __construct()
     {
-        $this->objFeira=new Feira();
+        $this->authorizeResource(Feira::class,'feiras');
     }
     public function index() {
-
-        $this->authorize('viewAny', Feira::class);
 
         $feiras = Feira::all();
 

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('horarioFeira_id');
             $table->foreign('administrador_id')->references('id')->on('users');
             $table->foreign('diaSemana_id')->references('id')->on('diaSemana');
-            $table->foreign('horarioFeira_id')->references('id')->on('horariosFeira');
+            $table->foreign('horarioFeira_id')->references('id')->on('horarios');
             $table->timestamps();
         });
     }

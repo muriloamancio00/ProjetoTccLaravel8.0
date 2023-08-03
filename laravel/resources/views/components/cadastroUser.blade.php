@@ -24,9 +24,9 @@
                 <div class="card-body">
                     <div class="card-body">
                         <div class="list-group"  >
-                            <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.feiras.create') }}" class="dropdown-item">Horarios de Feiras</a>
-                            <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.bancas.create') }}" class="dropdown-item">Categoria de Produtos</a>
-                            <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.bancas.create') }}" class="dropdown-item">Cadastro de Eventos</a>
+                            <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.horarios.index') }}" class="dropdown-item">Horarios de Feiras</a>
+                            <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.categorias.index') }}" class="dropdown-item">Categoria de Produtos</a>
+                            <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.categorias.index') }}" class="dropdown-item">Cadastro de Eventos</a>
                         </div>
                     </div>
                 </div>

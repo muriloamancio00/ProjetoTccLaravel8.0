@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Facades\UserPermissions;
+use App\Facades\FeirantePermissions;
 
 
 class CustomFacadeServiceProvider extends ServiceProvider {
@@ -17,6 +18,11 @@ class CustomFacadeServiceProvider extends ServiceProvider {
         $this->app->bind('userpermissions',function(){
 
             return new UserPermissions();
+        });
+
+        $this->app->bind('feirantepermissions',function(){
+
+            return new FeirantePermissions();
         });
     }
 

@@ -10,6 +10,4 @@
         <x-cadastros></x-cadastros>
     </div>
 
-
-
 @endsection

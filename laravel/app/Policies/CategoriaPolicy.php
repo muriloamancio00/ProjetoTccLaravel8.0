@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Models\Feira;
+use App\Models\Categorias;
 use App\Models\User;
 use App\Facades\UserPermissions;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class FeiraPolicy {
+class CategoriaPolicyPolicy {
 
     use HandlesAuthorization;
 
@@ -22,25 +22,25 @@ class FeiraPolicy {
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Categorias  $categorias
      * @return \Illuminate\Auth\Access\Response|bool
      */
 
     public function viewAny(User $user) {
 
-        return UserPermissions::isAuthorized('feiras.index');
+        return UserPermissions::isAuthorized('categorias.index');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Categorias  $categorias
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Feira $feira)
+    public function view(User $user, Categorias $categorias)
     {
-        return UserPermissions::isAuthorized('feiras.show');
+        return UserPermissions::isAuthorized('categorias.show');
 
     }
 
@@ -52,19 +52,19 @@ class FeiraPolicy {
      */
     public function create(User $user)
     {
-        return UserPermissions::isAuthorized('feiras.create');
+        return UserPermissions::isAuthorized('categorias.create');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Categorias  $categorias
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Feira $feira)
+    public function update(User $user, Categorias $categorias)
     {
-        return UserPermissions::isAuthorized('feiras.edit');
+        return UserPermissions::isAuthorized('categorias.edit');
 
     }
 
@@ -72,22 +72,22 @@ class FeiraPolicy {
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Categorias  $categorias
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Feira $feira)
+    public function delete(User $user, Categorias $categorias)
     {
-        return UserPermissions::isAuthorized('feiras.destroy');
+        return UserPermissions::isAuthorized('categorias.destroy');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Categorias  $categorias
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Feira $feira)
+    public function restore(User $user, Categorias $categorias)
     {
         //
     }
@@ -96,10 +96,10 @@ class FeiraPolicy {
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Feira  $feira
+     * @param  \App\Models\Categorias  $categorias
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Feira $feira)
+    public function forceDelete(User $user, Categorias $categorias)
     {
         //
     }

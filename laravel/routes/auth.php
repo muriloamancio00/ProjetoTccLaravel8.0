@@ -69,6 +69,7 @@ Route::prefix('/gerencia')->name('gerencia.')->group(function(){
     Route::resource('bancas', '\App\Http\Controllers\BancaController');
     Route::resource('sobre', '\App\Http\Controllers\SobreController');
     Route::resource('categorias', '\App\Http\Controllers\CategoriasController');
+    Route::resource('horarios', '\App\Http\Controllers\HorarioController');
 })->middleware(['auth']);
 
 //agrupados por middleware

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoProduto;
+use App\Models\Horario;
 use Illuminate\Http\Request;
 
-class TipoProdutoController extends Controller
+class HorarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,11 @@ class TipoProdutoController extends Controller
      */
     public function index()
     {
-        //
-    }
 
+        $horarios = Horario::all();
+
+        return view('horarios.index', compact('horarios'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -41,10 +43,10 @@ class TipoProdutoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoProduto $tipoProduto)
+    public function show(Horario $horario)
     {
         //
     }
@@ -52,22 +54,22 @@ class TipoProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoProduto $tipoProduto)
+    public function edit(Horario $horario)
     {
-        //
+        return view('horario.edit',compact('horario'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoProduto $tipoProduto)
+    public function update(Request $request, Horario $horario)
     {
         //
     }
@@ -75,11 +77,11 @@ class TipoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TipoProduto  $tipoProduto
+     * @param  \App\Models\Horario  $horario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoProduto $tipoProduto)
+    public function destroy(Horario $horario)
     {
-        //
+        return view('horario.destroy');
     }
 }

@@ -16,7 +16,7 @@ class HorariosFeiraSeeder extends Seeder
      */
     public function run()
     {
-        $horarioFeira = [
+        $horarios = [
             ['horario' => '10:00'],
             ['horario' => '10:30'],
             ['horario' => '11:00'],
@@ -41,7 +41,7 @@ class HorariosFeiraSeeder extends Seeder
             ['horario' => '20:30'],
         ];
 
-        DB::table('horariosFeira')->insert($horarioFeira);
+        DB::table('horarios')->insert($horarios);
     }
 
 }
