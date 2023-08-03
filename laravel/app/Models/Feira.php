@@ -15,6 +15,10 @@ class Feira extends Model {
         'horarioFeira_id',
         'diaSemana_id',
         'administrador_id',
+        // longitude, latitude, horarioFim
+        'longitude',
+        'latitude',
+        'horarioFim',
     ];
 
 }

@@ -18,10 +18,10 @@ class StatusSeeder extends Seeder
     public function run()
     {
         $statuses = [
-            ['nome' => 'ativo', 'descricao' => 'Descrição do status 1'],
-            ['nome' => 'inativo', 'descricao' => 'Descrição do status 2'],
-            ['nome' => 'ocorrendo', 'descricao' => 'Descrição do status 3'],
-            ['nome' => 'finalizado', 'descricao' => 'Descrição do status 4'],
+            ['nome' => 'ativo', 'descricao' => 'Evento Ocorrera Normalmente!'],
+            ['nome' => 'inativo', 'descricao' => 'Evento Cancelado!'],
+            ['nome' => 'ocorrendo', 'descricao' => 'Evento Acontecendo Agora!'],
+            ['nome' => 'finalizado', 'descricao' => 'Evento Finalizado!'],
             // Adicione mais registros conforme necessário
         ];
 

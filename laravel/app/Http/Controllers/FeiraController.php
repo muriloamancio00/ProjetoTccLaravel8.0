@@ -67,14 +67,28 @@ class FeiraController extends Controller
 
         $request->validate($regras, $msgs);
 
-        $this->objFeira->create([
+        $objFeira =[
             'nome'=>$request->nome,
             'endereco'=>$request->endereco,
             'horarioFeira_id'=>$request->horarioFeira_id,
             'administrador_id'=>$request->administrador_id,
             'diaSemana_id'=>$request->diaSemana_id,
-        ]);
-        dd($request);
+        ];
+
+        if ($request->has('horarioFim')) {
+            $objFeira['horarioFim'] = $request->horarioFim;
+        }
+
+        if ($request->has('latitude')) {
+            $objFeira['latitude'] = $request->latitude;
+        }
+
+        if ($request->has('longitude')) {
+            $objFeira['longitude'] = $request->longitude;
+        }
+
+        Feira::create($objFeira);
+
         return redirect()->route('feiras.index');
     }
 
