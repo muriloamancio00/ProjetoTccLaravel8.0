@@ -15,7 +15,7 @@
                     :title="'feiras index'"
                     :crud="'feiras'"
                     :header="['nome','horarios','endereço','dia da semana']"
-                    :fields="['nome','horarioFeira_id','endereco',horarioFeira_id]"
+                    :fields="['nome','horarioFeira_id','endereco','horarioFeira_id']"
                     :data="$feiras"
                     :hide="[false,false,false,false,false]"
                     :info="['nome','horarioFeira_id']"
