@@ -70,6 +70,8 @@ Route::prefix('/gerencia')->name('gerencia.')->group(function(){
     Route::resource('sobre', '\App\Http\Controllers\SobreController');
     Route::resource('categorias', '\App\Http\Controllers\CategoriasController');
     Route::resource('horarios', '\App\Http\Controllers\HorarioController');
+    Route::resource('administrador', '\App\Http\Controllers\AdministradorController');
+    Route::resource('feirante', '\App\Http\Controllers\FeiranteController');
 })->middleware(['auth']);
 
 //agrupados por middleware
@@ -77,4 +79,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('feiras', '\App\Http\Controllers\FeiraController');
     Route::resource('produtos', '\App\Http\Controllers\ProdutoController');
     Route::resource('bancas', '\App\Http\Controllers\BancaController');
+    Route::resource('sobre', '\App\Http\Controllers\SobreController');
+    Route::resource('categorias', '\App\Http\Controllers\CategoriasController');
+    Route::resource('horarios', '\App\Http\Controllers\HorarioController');
+    Route::resource('administrador', '\App\Http\Controllers\AdministradorController');
+    Route::resource('feirante', '\App\Http\Controllers\FeiranteController');
 });

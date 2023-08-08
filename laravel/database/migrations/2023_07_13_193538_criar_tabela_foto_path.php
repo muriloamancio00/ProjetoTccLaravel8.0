@@ -12,16 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fotoPath', function (Blueprint $table) {
+            //colunas
             $table->id();
-            $table->string('nome');
             $table->string('descricao')->nullable();
-            $table->unsignedBigInteger('banca_id');
-            $table->unsignedBigInteger('bancaFeirante_id');
-            $table->unsignedBigInteger('bancaFeira_id');
-            $table->foreign('banca_id')->references('id')->on('bancas');
-            $table->foreign('bancaFeirante_id')->references('feirante_id')->on('bancas');
-            $table->foreign('bancaFeira_id')->references('feira_id')->on('bancas');
-        });
+            $table->string('caminho')->unique();
+
+            //constraint
+            $table->foreign('id')->references('id')->on('bancas');
+            });
     }
 
     /**

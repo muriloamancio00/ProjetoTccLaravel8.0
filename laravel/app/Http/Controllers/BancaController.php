@@ -18,9 +18,7 @@ class BancaController extends Controller
     {
         $this->authorize('viewAny', Banca::class);
 
-        $bancas = Banca::with(['feira__bancas'])->get();
-
-        //$bancas = Banca::all();
+        $bancas = Banca::all();
 
         //dd($bancas);
 

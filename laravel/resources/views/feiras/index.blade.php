@@ -7,7 +7,7 @@
 @section('conteudo')
 
         <div class="row">
-            <div style="background-color: rgba(212,203,58,0.27);margin-top: 10px;border-radius: 4px" class="col">
+            <div class="col">
 
                 <!-- Utiliza o componente "datalist" criado -->
                 <x-datalist
@@ -21,18 +21,7 @@
                     :info="['nome','horarioFeira_id']"
                     :remove="'nome'"
                     class="datalist"
-                >
-                            <!-- Deveria dar um estilo para esse datalist -->
-                    <style>
-                        .datalist {
-                            margin-top: 20px;
-                            padding: 10px;
-                            background-color: #3e8e41;
-                            border: 1px solid #dee2e6;
-                            border-radius: 5px;
-                        }
-                    </style>
-                </x-datalist>
+                />
 
             </div>
         </div>

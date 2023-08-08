@@ -54,7 +54,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `feirantes`
+-- Estrutura da tabela `feirante`
 --
 
 CREATE TABLE `feirantes` (
@@ -166,9 +166,9 @@ INSERT INTO `permissions` (`id`, `regra`, `permissao`, `type_id`, `created_at`, 
 (7, 'eventos.index', 0, 1, NULL, NULL),
 (8, 'eventos.edit', 1, 1, NULL, NULL),
 (9, 'eventos.show', 0, 1, NULL, NULL),
-(10, 'feirantes.index', 2, 2, NULL, NULL),
-(11, 'feirantes.edit', 1, 1, NULL, NULL),
-(12, 'feirantes.show', 0, 2, NULL, NULL),
+(10, 'feirante.index', 2, 2, NULL, NULL),
+(11, 'feirante.edit', 1, 1, NULL, NULL),
+(12, 'feirante.show', 0, 2, NULL, NULL),
 (13, 'feiras.index', 1, 1, NULL, NULL),
 (14, 'feiras.edit', 1, 1, NULL, NULL),
 (15, 'feiras.show', 0, 1, NULL, NULL),
@@ -280,7 +280,7 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Índices para tabela `feirantes`
+-- Índices para tabela `feirante`
 --
 ALTER TABLE `feirantes`
   ADD PRIMARY KEY (`id`),
@@ -355,7 +355,7 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `feirantes`
+-- AUTO_INCREMENT de tabela `feirante`
 --
 ALTER TABLE `feirantes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
@@ -413,7 +413,7 @@ ALTER TABLE `clientes`
   ADD CONSTRAINT `clientes_type_id_foreign` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);
 
 --
--- Limitadores para a tabela `feirantes`
+-- Limitadores para a tabela `feirante`
 --
 ALTER TABLE `feirantes`
   ADD CONSTRAINT `feirantes_type_id_foreign` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`);

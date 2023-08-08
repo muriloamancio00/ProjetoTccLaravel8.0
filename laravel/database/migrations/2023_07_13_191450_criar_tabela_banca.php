@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bancas', function (Blueprint $table) {
+            //colunas
             $table->id();
             $table->string('nome');
             $table->string('descricao')->nullable();
-            $table->string('fotoPath')->nullable();
             $table->unsignedBigInteger('feira_id');
             $table->unsignedBigInteger('feirante_id');
-            $table->foreign('feira_id')->references('id')->on('feiras');
-            $table->foreign('feirante_id')->references('id')->on('feirantes');
             $table->timestamps();
+
+            //constraint
+            $table->foreign('feira_id')->references('id')->on('feiras');
+            $table->foreign('feirante_id')->references('id')->on('feirante');
         });
     }
 

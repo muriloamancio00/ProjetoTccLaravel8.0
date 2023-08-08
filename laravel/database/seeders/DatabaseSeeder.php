@@ -36,12 +36,11 @@ class DatabaseSeeder extends Seeder
         $this->call(StatusSeeder::class);
         $this->call(DiaSemanaSeeder::class);
         $this->call(HorariosFeiraSeeder::class);// diaSemana
-        $this->call(FeiranteSeeder::class);
         $this->call(FeiraSeeder::class);
         //$this->call(TipoProdutoSeeder::class);
         //$this->call(TipoEventoSeeder::class);
         //$this->call(ListaProdutoSeeder::class);
-        //$this->call(BancaSeeder::class);
+        $this->call(BancaSeeder::class);
         //$this->call(Feiras_BancasSeeder::class);
         //$this->call(ProdutoSeeder::class);
         //

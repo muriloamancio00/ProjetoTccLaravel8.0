@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
-class FeiranteSeeder extends Seeder
+class AdministradorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,8 +21,8 @@ class FeiranteSeeder extends Seeder
         $faker = Faker::create();
 
         //for ($i = 1; $i < 10; $i++) {
-            DB::table('feirante')->insert([
-                'id' => 2,
+            DB::table('administradores')->insert([
+                'id' => 1,
                 'apelido' => $faker->name,
                 //'email' => $faker->unique()->safeEmail,
                 //'senha' => bcrypt('password'), // Defina a senha desejada ou utilize o Hash::make() para criar uma senha criptografada

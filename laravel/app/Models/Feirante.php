@@ -8,33 +8,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Feirante extends Authenticatable
+
+class Feirante extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'type_id',
-    ];
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
+        'apelido',
+        'telefone',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // Relacionamento com a tabela Users (um feirante pertence a um usuário)
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id', 'id');
+    }
 
+    // Se você precisar de um relacionamento com a tabela Bancas, você pode adicioná-lo aqui
+    // Exemplo:
+    // public function bancas()
+    // {
+    //     return $this->hasMany(Banca::class);
+    // }
 }

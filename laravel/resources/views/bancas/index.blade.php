@@ -8,13 +8,12 @@
     <div class="row">
         <div class="col">
 
-
             <!-- Utiliza o componente "datalist" criado -->
             <x-datalist
                 :title="'Banca'"
                 :crud="'bancas'"
-                :header="['ID','NOME','Lista de Produto',]"
-                :fields="['id','nome','id_listaProduto',]"
+                :header="['Id','Nome','Feira ID',]"
+                :fields="['id','nome','feira_id',]"
                 :data="$bancas"
                 :hide="[true,true,true]"
                 :info="['id', 'nome']"

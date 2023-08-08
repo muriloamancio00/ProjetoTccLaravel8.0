@@ -14,7 +14,6 @@ class FeiraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $objFeira;
     public function __construct()
     {
         $this->authorizeResource(Feira::class,'feiras');

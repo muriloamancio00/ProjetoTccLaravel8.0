@@ -11,19 +11,10 @@ class Banca extends Model {
 
     protected $fillable = [
         'nome',
-        'id_feira',
-        'id_listaProduto',
-        'ativo',
+        'feira_id',
+        'feirante_id',
+        'descricao',
+        'fotoPath',
     ];
 
-    public function feira__bancas() {
-        return $this->hasMany('\App\Models\Feira_Banca');
-    }
-
-    public function listaProduto() {
-        return $this->hasOne('\App\Models\ListaProduto');
-    }
-        
-        
-        
 }

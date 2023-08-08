@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('eventos', function (Blueprint $table) {
+            //colunas
             $table->id();
             $table->string('nome');
             $table->string('descricao')->nullable();
@@ -19,10 +20,13 @@ return new class extends Migration
             $table->unsignedBigInteger('administrador_id');
             $table->unsignedBigInteger('feira_id');
             $table->unsignedBigInteger('status_id');
+            $table->timestamps();
+
+            //constraint
             $table->foreign('administrador_id')->references('id')->on('users');
             $table->foreign('feira_id')->references('id')->on('feiras');
             $table->foreign('status_id')->references('id')->on('status');
-            $table->timestamps();
+
         });
     }
 

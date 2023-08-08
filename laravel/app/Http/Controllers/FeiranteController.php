@@ -13,20 +13,14 @@ class FeiranteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        if(!PermissionController::isAuthorized('feirantes.index')) {
 
-            abort(403);
+        // Recuperar todos os feirante juntamente com os usuários associados a eles
+        $feirante = Feirante::with('user')->get();
 
-        }
-
-        $feirantes = Feirante::all();
-
-        $permissions = session('user_permissions');
-
-        return view('feirantes.index', compact('permissions','feirantes'));
-        
+        return view('feirante.index', compact( 'feirante'));
     }
 
     /**
@@ -37,13 +31,7 @@ class FeiranteController extends Controller
     public function create()
     {
 
-        if(!UserPermissions::isAuthorized('feirantes.create')) {
-        
-            abort(403);
-        
-        }
-
-        return view('feirantes.create');
+        return view('feirante.create');
     }
 
     /**
@@ -55,13 +43,13 @@ class FeiranteController extends Controller
     public function store(Request $request){
 
         Feirante::create([
-            "nome" => mb_strtoupper($request->nome),
-            "senha" => ($request->senha),
-            "email" => ($request->email),
+            "apelido" => mb_strtoupper($request->apelido),
+            "telefone" => ($request->telefone),
+            "id_user" => ($request->id),
             //"type_id" => ($request->type_id),
         ]);
 
-        return redirect()->route('feirantes.index');
+        return redirect()->route('feirante.index');
     }
 
     /**
@@ -72,7 +60,7 @@ class FeiranteController extends Controller
      */
     public function show(Feirante $feirante)
     {
-        return view('feirantes.show', compact(['feirante']));
+        return view('feirante.show', compact(['feirante']));
     }
 
     /**
@@ -83,7 +71,7 @@ class FeiranteController extends Controller
      */
     public function edit(Feirante $feirante)
     {
-        return view('feirantes.edit', compact(['feirante']));
+        return view('feirante.edit', compact('feirante'));
     }
 
     /**
@@ -95,10 +83,10 @@ class FeiranteController extends Controller
      */
     public function update(Request $request, Feirante $feirante){
 
-        if(!UserPermissions::isAuthorized('feirantes.create')) {
-        
+        if(!UserPermissions::isAuthorized('feirante.create')) {
+
             abort(403);
-        
+
         }
 
         $feirante->update([
@@ -109,7 +97,7 @@ class FeiranteController extends Controller
             //"type_id" => ($request->type_id),
         ]);
 
-        return redirect()->route('feirantes.index');
+        return redirect()->route('feirante.index');
     }
 
     /**
@@ -120,14 +108,14 @@ class FeiranteController extends Controller
      */
     public function destroy(Feirante $feirante)
     {
-        if(!UserPermissions::isAuthorized('feirantes.destroy')) {
-        
+        if(!UserPermissions::isAuthorized('feirante.destroy')) {
+
             abort(403);
-        
+
         }
 
         $feirante->delete();
 
-        return redirect()->route('feirantes.index');
+        return redirect()->route('feirante.index');
     }
 }

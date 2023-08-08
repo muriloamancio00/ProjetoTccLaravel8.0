@@ -25,7 +25,7 @@
                     @php $cont=0; @endphp
                     @foreach($fields as $field)
                         @if($hide[$cont])
-                            <td class="d-none d-md-table-cell">{{ $item[$field] }}</td>
+                            <td  style="margin-top: 20px;border-radius: 5px;padding: 10px;background-color: rgba(139,128,112,0.27);border: 1px solid #dee2e6;" class="d-none d-md-table-cell">{{ $item[$field] }}</td>
                         @else
                             <td>{{ $item[$field] }}</td>
                         @endif

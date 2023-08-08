@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('status', function (Blueprint $table) {
+            //colunas
             $table->id();
             $table->string('nome');
             $table->string('descricao')->nullable();

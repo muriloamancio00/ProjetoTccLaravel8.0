@@ -9,8 +9,8 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group"  >
-                        <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.feiras.create') }}" class="list-group-item list-group-item-action">Administrador</a>
-                        <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.bancas.create') }}" class="list-group-item list-group-item-action">Feirante</a>
+                        <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.administrador.index') }}" class="list-group-item list-group-item-action">Administrador</a>
+                        <a style="display: flex;justify-content:center;align-items: center;" href="{{ route('gerencia.feirante.index') }}" class="list-group-item list-group-item-action">Feirante</a>
                     </div>
                 </div>
             </div>
