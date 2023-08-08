@@ -1,9 +1,6 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.main', ['titulo' => "Administrador", 'rota' => "administradores.create"])
+@extends('templates.main', ['titulo' => "Administrador Index", 'rota' => "administradores.create"])
 <!-- Preenche o conteúdo da seção "titulo" -->
-@section('titulo') administradores @endsection
-<!-- Preenche o conteúdo da seção "navbar" -->
-
 
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
@@ -11,14 +8,16 @@
         <div class="col">
             <!-- Utiliza o componente "datalist" criado -->
             <x-datalist
-                :title="'administradores'"
-                :crud="'Administrador'"
-                :header="['ID','NOME','']"
-                :fields="['id','nome',]"
+                class="datalist"
+                :title="''"
+                :crud="'administrador'"
+                :header="['apelido','telefone','numero de user']"
+                :fields="['apelido','telefone','id']"
                 :data="$administradores"
-                :hide="[true,true,true]"
-                :info="['id', 'nome']"
-                :remove="'nome'"
+                :hide="[false,false,false]"
+                :info="['apelido','telefone']"
+                :remove="'id'"
+                class="datalist"
             />
         </div>
     </div>

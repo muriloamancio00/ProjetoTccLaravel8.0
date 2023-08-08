@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Feirante extends Model
 {
+    protected $table = 'feirante';
     protected $fillable = [
         'apelido',
         'telefone',

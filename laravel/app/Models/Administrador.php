@@ -7,17 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Administrador extends Model
 {
+    //para ser proucurada a tabela correta dentro do bd
+    protected $table = 'administradores';
+
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'type_id',
+        'apelido',
+        'telefone',
     ];
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id', 'id');
+    }
     public function feira() {
         return $this->belongsToMany('\App\Models\Feira', 'feiras');
     }
-        
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Policies\AdministradorPolicy;
 use App\Policies\CategoriaPolicyPolicy;
 use App\Policies\FeiraPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -16,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         FeiraPolicy::class => FeiraPolicy::class,
+        AdministradorPolicy::class => AdministradorPolicy::class,
         CategoriaPolicyPolicy::class => CategoriaPolicyPolicy::class,
     ];
 

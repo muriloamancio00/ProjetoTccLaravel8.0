@@ -14,13 +14,10 @@ class AdministradorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        $administradores = Administrador::with('user')->get();
 
-        $this->authorize('viewAny', Administrador::class);
-        $this->authorizeForUser($administrador = new Administrador(),'viewAny',Administrador::class);
 
-        $administradores = Administrador::all();
-
-        return view('administradores.index', compact('administradores','administrador'));
+        return view('administradores.index', compact('administradores'));
     }
 
         /**
@@ -32,9 +29,9 @@ class AdministradorController extends Controller
     public function show(Administrador $administrador) {
 
         $this->authorize('view', $administrador);
-    
+
         return view('administradores.show');
-    
+
     }
 
     /**
@@ -42,7 +39,7 @@ class AdministradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function create() {
 
         $this->authorize('create', Administrador::class);
@@ -74,7 +71,7 @@ class AdministradorController extends Controller
         $this->authorize('update', $administrador);
 
         return view('administradores.edit');
-    
+
     }
 
     /**
