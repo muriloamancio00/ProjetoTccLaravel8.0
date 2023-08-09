@@ -155,7 +155,24 @@ section {
     border-bottom-right-radius: 10px;
     z-index: -1;
 }
-
+.card-section {
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+}
+.card-section h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #fff; /* Cor do texto */
+    background-color: #333; /* Cor de fundo */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 4px; /* Borda arredondada */
+}
+.card-container {
+    background-color: #6b7280;
+    border-radius: 4px;
+    padding: 20px;
+}
 .card-title {
     color: #2E5266;
     font-size: 24px;

@@ -114,7 +114,7 @@
     </div>
     <nav class="navbar fixed-bottom navbar-dark bg-secondary">
         <div class="container-fluid">
-                    <span class="text-white fw-light">&copy;<b>Bem vindo senhor {{ Auth::user()->name}}</b>
+                    <span class="text-white fw-light">&copy;<b>   User: {{ Auth::user()->name}}</b>
                     </span>
         </div>
     </nav>

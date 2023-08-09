@@ -1,13 +1,21 @@
-@extends('templates.main', ['titulo' => "Gerenciamento de Murilo Amancio"] )
+@extends('templates.main', ['titulo' => ""] )
 <!-- Preenche o conteúdo da seção "titulo" -->
 @section('main')
-
-    <div style="background-color:#6b7280;border-radius: 4px">
-        <x-cadastroUser></x-cadastroUser>
+    <div class="card-section">
+        <h2>Seção de Funcionalidades Ativas</h2>
+        <div class="card-container">
+            <div style="width: 1300px; height: 420px;">
+                <x-cadastroUser></x-cadastroUser>
+            </div>
+        </div>
     </div>
 
-    <div style="background-color:#6b7280;border-radius: 4px">
-        <x-cadastros></x-cadastros>
+    <div class="card-section">
+        <h2>Seção de Páginas a Concluir</h2>
+        <div class="card-container">
+            <div>
+                <x-cadastros></x-cadastros>
+            </div>
+        </div>
     </div>
-
 @endsection
