@@ -15,7 +15,7 @@
                     :title="''"
                     :crud="'feiras'"
                     :header="['nome','horarios','endereço','dia da semana']"
-                    :fields="['nome','horarioFeira_id','endereco','diaSemana_id']"
+                    :fields="['nome','horarioNome','endereco','diaSemanaNome']"
                     :data="$feiras"
                     :hide="[false,false,false,false,false]"
                     :info="['nome','horarioFeira_id']"
@@ -25,8 +25,6 @@
 
             </div>
         </div>
-    </div>
-
 
 
 @endsection

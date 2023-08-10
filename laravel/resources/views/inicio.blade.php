@@ -17,5 +17,5 @@
                 <x-cadastros></x-cadastros>
             </div>
         </div>
-    </div>
+        </div>
 @endsection

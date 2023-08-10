@@ -18,12 +18,11 @@ class BancaController extends Controller
     {
         $this->authorize('viewAny', Banca::class);
 
-        $bancas = Banca::all();
-
-        //dd($bancas);
+        $bancas = Banca::with(['feira', 'feirante'])->get();
 
         return view('bancas.index', compact('bancas'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,15 +31,15 @@ class BancaController extends Controller
      */
     public function create()
     {
-
         $this->authorize('create', Banca::class);
 
-        $feiras = FeiraModel::orderBy('id')->get();
+        $feiras = Feira::orderBy('id')->get();
+        $feirantes = Feirante::orderBy('id')->get();
 
-        $listas = ListaProduto::orderBy('id')->get();
-
-        return view('bancas.create', compact(['feiras','listas']));
+        return view('bancas.create', compact('feiras', 'feirantes'));
     }
+
+
 
     /**
      * Store a newly created resource in storage.

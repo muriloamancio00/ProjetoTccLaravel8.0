@@ -6,6 +6,7 @@ use App\Models\Feira;
 use App\Models\Horario;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FeiraController extends Controller
 {
@@ -18,11 +19,20 @@ class FeiraController extends Controller
     {
         $this->authorizeResource(Feira::class,'feiras');
     }
-    public function index() {
-
-        $feiras = Feira::all();
+    public function index()
+    {
+        $feiras = DB::table('feiras')
+            ->join('diaSemana', 'feiras.diaSemana_id', '=', 'diaSemana.id')
+            ->join('horarios', 'feiras.horarioFeira_id', '=', 'horarios.id') // Junção com a tabela "horarios"
+            ->select('feiras.*', 'diaSemana.nome as diaSemanaNome', 'horarios.horario as horarioNome') // Selecionando campos e renomeando
+            ->get()
+            ->map(function ($feira) {
+                return (array) $feira;
+            });
 
         return view('feiras.index', compact('feiras'));
+
+
     }
 
     /**

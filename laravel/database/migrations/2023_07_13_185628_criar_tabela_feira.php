@@ -27,7 +27,7 @@ return new class extends Migration
             //constraint
             $table->foreign('diaSemana_id')->references('id')->on('diaSemana');
             $table->foreign('horarioFeira_id')->references('id')->on('horarios');
-
+            $table->foreign('administrador_id')->references('id')->on('administradores');
         });
     }
 

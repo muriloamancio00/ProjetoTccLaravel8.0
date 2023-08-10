@@ -12,13 +12,30 @@ class Feira extends Model {
     protected $fillable = [
         'nome',
         'endereco',
-        'horarioFeira_id',
-        'diaSemana_id',
-        'administrador_id',
-        // longitude, latitude, horarioFim
-        'longitude',
-        'latitude',
         'horarioFim',
+        'latitude',
+        'longitude',
+        'administrador_id',
+        'diaSemana_id',
+        'horarioFeira_id',
     ];
+
+    //Relacionamento com a tabela DiaSemana (uma feira pertence a um dia da semana)
+    public function diaSemana()
+    {
+        return $this->belongsTo(DiaSemana::class,'diaSemana_id');
+    }
+
+    // Relacionamento com a tabela Horarios (uma feira pertence a um horário de feira)
+    public function horarios()
+    {
+        return $this->belongsTo(Horario::class, 'horarioFeira_id');
+    }
+
+    // Relacionamento com a tabela Administradores (uma feira pertence a um administrador)
+    public function administrador()
+    {
+        return $this->belongsTo(Administrador::class,'administrador_id');
+    }
 
 }
